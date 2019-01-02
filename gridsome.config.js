@@ -11,8 +11,10 @@ module.exports = {
       use: '~/plugins',
       options: {
         version: 'published',
-        cv: '', // cache version `new Date() for latest`
-        token: process.env.TOKEN // Storyblok token
+        token: process.env.TOKEN, // Storyblok token
+        route: '/blog/:slug',
+        typeName: 'Post',
+        folder: 'blog'
       }
     }
   ]
