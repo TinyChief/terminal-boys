@@ -11,7 +11,7 @@ module.exports = {
       use: '~/plugins',
       options: {
         version: 'published',
-        token: process.env.TOKEN, // Storyblok token
+        token: process.env.TOKEN || 'mv4E8eaPszE2EySWP7Cv6Qtt', // Storyblok token
         route: '/blog/:slug',
         typeName: 'Post',
         folder: 'blog'
