@@ -170,15 +170,15 @@ nav {
       color: #73d0c5;
       opacity: 0;
     }
-    &:hover {
-      border: 2px solid $bg;
+    // &:hover {
+      // border: 2px solid $bg;
 
-      &:after {
-        background: $bgFront;
-        opacity: 1;
-        height: 2px;
-      }
-    }
+      // &:after {
+      //   background: $bgFront;
+      //   opacity: 1;
+      //   height: 2px;
+      // }
+    // }
 
     &:after {
       content: "";
