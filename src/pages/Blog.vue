@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div>
-      <!-- <div v-for="item in $page.posts.edges" :key="item.id">
+      <div v-for="item in $page.allPost.edges" :key="item.id">
         <h2>
           {{item.node.title}}
         </h2>
@@ -9,20 +9,20 @@
           {{item.node.head}}
         </p>
         <g-link :to="item.node.path">Go</g-link>
-      </div> -->
-      <h1>Hello blog</h1>
+      </div>
     </div>
   </Layout>
 </template>
 
 <page-query>
-query Posts {
-  posts: allPost {
+query allPost {
+  allPost {
     edges {
       node {
-        title
-        head
         slug
+        title
+        id
+        created
         path
       }
     }

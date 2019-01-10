@@ -3,13 +3,19 @@
     <header class="header">
       <div class="row icons">
         <div class="soc-icon">
-          <i class="fab fa-vk"></i>
+          <a href="https://vk.com/cgm_chief" target="_blank">
+            <i class="fab fa-vk"></i>
+          </a>
         </div>
         <div class="soc-icon">
-          <i class="fab fa-twitter"></i>
+          <a href="https://twitter.com/narsacgm" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
         </div>
         <div class="soc-icon">
-          <i class="fab fa-github"></i>
+          <a href="https://github.com/TinyChief" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
         </div>
       </div>
       <div class="row main">
@@ -19,7 +25,7 @@
           </g-link>
         </strong>
         <nav class="nav">
-          <g-link class="nav__link" :to="{ name: 'home' }">
+          <g-link class="nav__link" :to="{ name: 'home' }" data-name="home">
             Главная
             <i class="fas fa-square-full"></i>
           </g-link>
@@ -57,14 +63,13 @@ export default {
 
 
 <style lang="scss">
-@import "~/styles/vars.scss";
+@import "~/styles/main.scss";
 
 body {
   font-family: "Roboto", -apple-system, system-ui, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 1.5;
   box-sizing: border-box;
   font-size: 16px;
   * {

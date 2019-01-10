@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Terminal from "~/components/Terminal2.vue";
+import Terminal from "~/components/Terminal.vue";
 
 export default {
   components: { Terminal },
