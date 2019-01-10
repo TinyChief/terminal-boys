@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div>
-      <div v-for="item in $page.posts.edges" :key="item.id">
+      <div v-for="item in $page.allPost.edges" :key="item.id">
         <h2>
           {{item.node.title}}
         </h2>
@@ -15,13 +15,12 @@
 </template>
 
 <page-query>
-query Posts {
-  posts: allPost {
+query allPost {
+  allPost {
     edges {
       node {
-        title
-        head
         slug
+        title
         path
       }
     }
@@ -32,7 +31,7 @@ query Posts {
 <script>
 export default {
   metaInfo: {
-    title: "BlogPage",
+    title: "BlogPage"
   }
 };
 </script>
