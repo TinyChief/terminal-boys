@@ -1,6 +1,5 @@
 <template>
   <Layout>
-    <!-- <div v-html="$page.post.content"/> -->
     <h1>{{$page.post.title}}</h1>
     <p>{{$page.post.body}}</p>
   </Layout>
@@ -21,6 +20,9 @@ export default {
     return {
       title: this.$page.post.title,
     }
+  },
+  mounted () {
+    document.querySelector('[href="/blog"]').classList.add('active--exact')
   }
 };
 </script>

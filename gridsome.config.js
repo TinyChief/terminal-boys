@@ -4,7 +4,7 @@
 module.exports = {
   siteName: process.env.SITE_NAME || 'Dev personal',
   siteDescription: process.env.SITE_DESC || 'Personal site of web developer.',
-  titleTemplate: process.env.SITE_TITLE || '%s - <siteName>',
+  // titleTemplate: process.env.SITE_TITLE || '%s - <siteName>',
 
   plugins: [
     {
