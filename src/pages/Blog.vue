@@ -1,15 +1,13 @@
 <template>
   <Layout>
     <div>
-      <div v-for="item in $page.allPost.edges" :key="item.id">
-        <h2>
-          {{item.node.title}}
-        </h2>
-        <p>
-          {{item.node.head}}
-        </p>
-        <g-link :to="item.node.path">Go</g-link>
-      </div>
+      <a :href="item.node.path" class="post-item" v-for="item in $page.allPost.edges" :key="item.node.id">
+        <div class="post-icon">{{item.node.icon}}</div>
+        <div class="post-text">
+          <h3>{{item.node.title}}</h3>
+          <p>{{item.node.head}}</p>
+        </div>
+      </a>
     </div>
   </Layout>
 </template>
@@ -19,11 +17,11 @@ query allPost {
   allPost {
     edges {
       node {
-        slug
         title
         id
         created
         path
+        head
       }
     }
   }
@@ -33,7 +31,31 @@ query allPost {
 <script>
 export default {
   metaInfo: {
-    title: "BlogPage",
+    title: "BlogPage"
   }
 };
 </script>
+
+<style lang="scss">
+@import "../styles/vars.scss";
+
+.post-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: skyblue; 
+  margin-right: 15px;
+}
+.post-item {
+  display: flex;
+  margin-bottom: 20px;
+  h3 {
+    margin-bottom: 5px;
+  }
+  p {
+    color: rgba($fontColor, 0.5);
+    font-size: 15px;
+  }
+}
+</style>
+

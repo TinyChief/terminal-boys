@@ -35,6 +35,7 @@ module.exports = function (api, options) {
           published: item.published_at,
           created: item.created_at,
           bodyHTML: markdownToHtml(item.content.body),
+          head: item.content.head || 'Прочитать...',
           ...item.content
         }
       })

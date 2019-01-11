@@ -11,12 +11,19 @@
         <p :class="['output', item.status ]">{{item.output}}</p>
       </li>
     </ul>
-    <div id="terminal" class="prompt">
-      <i class="fas fa-terminal"></i>
-      <div class="divider"></div>
-      <div>{{prompt}}</div>
+    <div class="command-line">
+      <div id="terminal" class="prompt">
+        <i class="fas fa-terminal"></i>
+        <div class="divider"></div>
+        <div>{{prompt}}</div>
+      </div>
+      <input
+        id="command"
+        type="text"
+        @change="handleInput"
+        tabindex="1"
+      >
     </div>
-    <input id="command" type="text" @change="handleInput" tabindex="1">
   </div>
 </template>
 
@@ -36,13 +43,13 @@ export default {
     handleInput: function(e) {
       const userInput = e.target.value;
       const ans = executeCommand(userInput);
-      
+
       //Make input dissapper for 150ms
       terminal.style.opacity = 0;
       setTimeout(() => {
         terminal.style.opacity = 1;
       }, 150);
-      
+
       if (ans == "clear") {
         this.list = [];
         e.target.value = "";
@@ -93,6 +100,11 @@ function executeCommand(c) {
 <style lang="scss" scoped>
 @import "../styles/vars.scss";
 
+.command-line {
+  display: flex;
+  align-items: center;
+}
+
 .wrapper {
   display: block;
   width: 100%;
@@ -102,7 +114,7 @@ function executeCommand(c) {
   border-radius: 10px;
   color: $fontColor;
   font-size: 16px;
-  padding: 8px 12px 60px 12px;
+  padding: 8px 12px 100px 12px;
   overflow: scroll;
 }
 
@@ -146,12 +158,14 @@ function executeCommand(c) {
   border-bottom: 10px solid transparent;
 }
 
-input[type="text"] {
-  // background-color: rgba(255, 255, 255, 0.5);
+input[type=text] {
   background-color: transparent;
   color: $fontColor;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 100%;
+  margin: 0;
 }
 ul {
   margin: 0;
