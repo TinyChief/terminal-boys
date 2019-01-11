@@ -140,6 +140,7 @@ a {
   .main {
     justify-content: space-between;
     position: relative;
+    align-items: flex-end;
     // border-bottom: 2px solid $bg;
     &::before {
       content: "";
@@ -158,6 +159,7 @@ a {
   font-size: 24px;
   text-transform: uppercase;
   line-height: 1;
+  padding-bottom: 7px;
 }
 
 nav {
