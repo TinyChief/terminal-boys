@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <header class="header">
+    <header id="header">
       <div class="row icons">
         <div class="soc-icon">
           <a href="https://vk.com/cgm_chief" target="_blank">
@@ -41,6 +41,8 @@
       </div>
     </header>
     <slot/>
+    <footer id="footer">
+    </footer>
   </div>
 </template>
 
@@ -88,14 +90,18 @@ a {
 .layout {
   padding-top: 10px;
   max-width: 900px;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
   background: $bgFront;
 }
 
-.header {
+#footer {
+  padding: 30px 0;
+}
+
+#header {
   .row {
     display: flex;
     margin-bottom: 10px;
@@ -147,7 +153,7 @@ a {
 }
 
 #title {
-  width: min-content;
+  // width: min-content;
   text-align: right;
   font-size: 24px;
   text-transform: uppercase;
@@ -175,15 +181,6 @@ nav {
       color: #73d0c5;
       opacity: 0;
     }
-    // &:hover {
-      // border: 2px solid $bg;
-
-      // &:after {
-      //   background: $bgFront;
-      //   opacity: 1;
-      //   height: 2px;
-      // }
-    // }
 
     &:after {
       content: "";

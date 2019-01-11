@@ -1,15 +1,16 @@
 <template>
   <Layout>
     <h1>{{$page.post.title}}</h1>
-    <p>{{$page.post.body}}</p>
+    <div id="post-body" v-html="$page.post.bodyHtml"></div>
+    <!-- <p>{{$page.post.body}}</p> -->
   </Layout>
 </template>
 
 <page-query>
-query Post($path: String!) {
+query getPost($path: String!) {
 	post (path: $path) {
     title
-    body
+    bodyHtml
   }
 }
 </page-query>
@@ -26,3 +27,17 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+#post-body, #post-body * {
+  h1 {
+    color: red
+  }
+  p {
+    width: 100%;
+  }
+  p img {
+    max-width: 100%;
+  }
+}
+</style>
