@@ -8,8 +8,13 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "gridsome": "^0.4.0",
-    "storyblok-js-client": "^1.0.21"
+    "gridsome": "^0.4.3",
+    "rehype-stringify": "^5.0.0",
+    "remark-parse": "^6.0.3",
+    "remark-rehype": "^4.0.0",
+    "storyblok-js-client": "^1.0.21",
+    "unified": "^7.1.0",
+    "unified-stream": "^1.0.4"
   },
   "devDependencies": {
     "eslint": "^5.11.1",
