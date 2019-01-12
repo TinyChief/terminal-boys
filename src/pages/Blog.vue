@@ -1,11 +1,18 @@
 <template>
   <Layout>
     <div>
-      <a :href="item.node.path" class="post-item" v-for="item in $page.allPost.edges" :key="item.node.id">
-        <div class="post-icon">{{item.node.icon}}</div>
+      <a
+        v-for="item in $page.allPost.edges"
+        :key="item.node.id"
+        :href="item.node.path"
+        class="post-item"
+      >
+        <div class="post-icon">
+          {{ item.node.icon }}
+        </div>
         <div class="post-text">
-          <h3>{{item.node.title}}</h3>
-          <p>{{item.node.head}}</p>
+          <h3>{{ item.node.title }}</h3>
+          <p>{{ item.node.head }}</p>
         </div>
       </a>
     </div>
@@ -31,9 +38,9 @@ query allPost {
 <script>
 export default {
   metaInfo: {
-    title: "BlogPage"
+    title: 'BlogPage'
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -43,7 +50,7 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: skyblue; 
+  background-color: skyblue;
   margin-right: 15px;
 }
 .post-item {
@@ -58,4 +65,3 @@ export default {
   }
 }
 </style>
-

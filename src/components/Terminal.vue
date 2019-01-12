@@ -1,27 +1,40 @@
 <template>
-  <div id="wrapper" class="wrapper">
+  <div
+    id="wrapper"
+    class="wrapper"
+  >
     <ul>
-      <li v-for="(item, idx) in list" :key="idx">
+      <li
+        v-for="(item, idx) in list"
+        :key="idx"
+      >
         <div class="prompt">
-          <i class="fas fa-terminal"></i>
-          <div class="divider"></div>
-          <div>{{prompt}}</div>
+          <i class="fas fa-terminal" />
+          <div class="divider" />
+          <div>{{ prompt }}</div>
         </div>
-        <span class="user-input">{{item.input}}</span>
-        <p :class="['output', item.status ]">{{item.output}}</p>
+        <span class="user-input">
+          {{ item.input }}
+        </span>
+        <p :class="['output', item.status ]">
+          {{ item.output }}
+        </p>
       </li>
     </ul>
     <div class="command-line">
-      <div id="terminal" class="prompt">
-        <i class="fas fa-terminal"></i>
-        <div class="divider"></div>
-        <div>{{prompt}}</div>
+      <div
+        id="terminal"
+        class="prompt"
+      >
+        <i class="fas fa-terminal" />
+        <div class="divider" />
+        <div>{{ prompt }}</div>
       </div>
       <input
         id="command"
         type="text"
-        @change="handleInput"
         tabindex="1"
+        @change="handleInput"
       >
     </div>
   </div>
@@ -29,71 +42,82 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      text: "",
-      prompt: "tinychief.ru", // on every new line
-      snapshot: "", // terminal content after last exection of command
-      command: "", // command to execute
-      terminalAnswer: "",
+      text: '',
+      prompt: 'tinychief.ru', // on every new line
+      commandInput: null,
+      wrapper: null,
+      terminal: null,
+      terminalAnswer: '',
       list: []
-    };
+    }
+  },
+  mounted () {
+    // INIT wrapper, commandInput and terminal
+    this.wrapper = document.querySelector('#wrapper')
+    this.commandInput = document.querySelector('#command')
+    this.terminal = document.querySelector('#terminal')
+
+    this.wrapper.addEventListener('click', () => {
+      this.commandInput.focus()
+    })
   },
   methods: {
-    handleInput: function(e) {
-      const userInput = e.target.value;
-      const ans = executeCommand(userInput);
+    handleInput: function (e) {
+      const userInput = e.target.value
+      const ans = executeCommand(userInput)
 
-      //Make input dissapper for 150ms
-      terminal.style.opacity = 0;
+      // Make input dissapper for 150ms
+      this.terminal.style.opacity = 0
       setTimeout(() => {
-        terminal.style.opacity = 1;
-      }, 150);
+        this.terminal.style.opacity = 1
+      }, 150)
 
-      if (ans == "clear") {
-        this.list = [];
-        e.target.value = "";
-        return;
-      } else if (ans == "No such command") {
+      if (ans === 'clear') {
+        this.list = []
+        e.target.value = ''
+        return
+      } else if (ans === 'No such command') {
         this.list.push({
           input: userInput,
           output: `⚠️ ${ans}`,
-          status: "not-found"
-        });
+          status: 'not-found'
+        })
       } else {
         this.list.push({
           input: userInput,
           output: ans,
-          status: "found"
-        });
+          status: 'found'
+        })
       }
-      e.target.value = "";
+      e.target.value = ''
     }
   }
-};
+}
 // available commands
 const commands = [
   {
-    name: "birth",
-    answer: "10/10/1997"
+    name: 'birth',
+    answer: '10/10/1997'
   },
   {
-    name: "study",
-    answer: "Moscow Power Engineering Institute"
+    name: 'study',
+    answer: 'Moscow Power Engineering Institute'
   },
   {
-    name: "wtf",
-    answer: "cuz"
+    name: 'wtf',
+    answer: 'cuz'
   },
   {
-    name: "clear",
-    answer: "clear"
+    name: 'clear',
+    answer: 'clear'
   }
-];
+]
 
-function executeCommand(c) {
-  const idx = commands.findIndex(el => el.name == c);
-  return idx != -1 ? commands[idx].answer : "No such command";
+function executeCommand (c) {
+  const idx = commands.findIndex(el => el.name === c)
+  return idx !== -1 ? commands[idx].answer : 'No such command'
 }
 </script>
 
@@ -158,7 +182,7 @@ function executeCommand(c) {
   border-bottom: 10px solid transparent;
 }
 
-input[type=text] {
+input[type="text"] {
   background-color: transparent;
   color: $fontColor;
   border: none;
@@ -180,4 +204,3 @@ li {
   margin: 4px 0 4px 0;
 }
 </style>
-
