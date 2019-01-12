@@ -1,26 +1,27 @@
 <template>
   <Layout>
     <div>
-    <Terminal/>
+      <Terminal />
     </div>
   </Layout>
 </template>
 
 <script>
-import Terminal from "~/components/Terminal.vue";
+import Terminal from '~/components/Terminal.vue'
 
 export default {
   components: { Terminal },
   metaInfo: {
-    title: "FrontPage",
+    title: 'FrontPage',
     link: [
       {
-        rel: "stylesheet",
-        integrity: "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/",
-        crossorigin: "anonymous",
-        href: "https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        rel: 'stylesheet',
+        integrity:
+          'sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/',
+        crossorigin: 'anonymous',
+        href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css'
       }
     ]
   }
-};
+}
 </script>

@@ -6,69 +6,79 @@
           <a href="https://vk.com/cgm_chief" target="_blank">
             <i class="fab fa-vk"></i>
           </a>
-        </div>
-        <div class="soc-icon">
-          <a href="https://twitter.com/narsacgm" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </div>
-        <div class="soc-icon">
-          <a href="https://github.com/TinyChief" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div> -->
+    </div>
+    <div class="soc-icon">
+      <a href="https://twitter.com/narsacgm" target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+    <div class="soc-icon">
+      <a href="https://github.com/TinyChief" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+      </div>-->
       <div class="row main">
         <strong id="title">
-          <g-link :to="{ name: 'home' }">Terminal
+          <g-link :to="{ name: 'home' }">
+            Terminal
             <br>Boys
           </g-link>
         </strong>
         <nav class="nav">
-          <g-link class="nav__link" :to="{ name: 'home' }" data-name="home">
+          <g-link
+            class="nav__link"
+            :to="{ name: 'home' }"
+            data-name="home"
+          >
             Главная
-            <i class="fas fa-square-full"></i>
+            <i class="fas fa-square-full" />
           </g-link>
-          <g-link class="nav__link" :to="{ name: 'blog' }">
+          <g-link
+            class="nav__link"
+            :to="{ name: 'blog' }"
+          >
             Блог
-            <i class="fas fa-square-full"></i>
+            <i class="fas fa-square-full" />
           </g-link>
-          <g-link class="nav__link" :to="{ name: 'about' }">
+          <g-link
+            class="nav__link"
+            :to="{ name: 'about' }"
+          >
             Работы
-            <i class="fas fa-square-full"></i>
+            <i class="fas fa-square-full" />
           </g-link>
         </nav>
       </div>
     </header>
     <div class="wrapper">
-      <slot/>
+      <slot />
     </div>
-    <footer id="footer"></footer>
+    <footer id="footer" />
   </div>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: "FrontPage",
+    title: 'FrontPage',
     link: [
       {
-        rel: "stylesheet",
+        rel: 'stylesheet',
         integrity:
-          "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/",
-        crossorigin: "anonymous",
-        href: "https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          'sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/',
+        crossorigin: 'anonymous',
+        href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css'
       },
       {
-        rel: "stylesheet",
+        rel: 'stylesheet',
         href:
-          "https://fonts.googleapis.com/css?family=PT+Serif:700|Open+Sans&subset=cyrillic"
+          'https://fonts.googleapis.com/css?family=PT+Serif:700|Open+Sans&subset=cyrillic'
       }
     ]
   }
-};
+}
 </script>
-
 
 <style lang="scss">
 @import "~/styles/main.scss";

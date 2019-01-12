@@ -1,31 +1,39 @@
 <template>
   <Layout>
     <div class="post-header">
-      <h1>{{$page.post.title}}</h1>
-      <!-- <h1>Какой-то текст на русском языке</h1> -->
+      <h1>{{ $page.post.title }}</h1>
       <p>
         Вадим Юлдашбаев,
         <span class="publish-date">
           {{
-          new Date($page.post.created).toLocaleDateString('ru-RU', 
-           {month: 'short', day: 'numeric', year: 'numeric'})
+            new Date($page.post.created).toLocaleDateString('ru-RU',
+                                                            {month: 'short', day: 'numeric', year: 'numeric'})
           }}
         </span>
       </p>
       <div class="tags">
-        <g-link :to="{ route: '/blog/asd' }">javascript</g-link>
-        <g-link :to="{ route: '/blog' }">career</g-link>
-        <g-link :to="{ route: '/blog' }">yandex</g-link>
+        <g-link :to="{ route: '/blog/asd' }">
+          javascript
+        </g-link>
+        <g-link :to="{ route: '/blog' }">
+          career
+        </g-link>
+        <g-link :to="{ route: '/blog' }">
+          yandex
+        </g-link>
       </div>
     </div>
     <hr>
-    <div class="post-body" v-html="$page.post.bodyHtml"></div>
+    <!-- eslint-disable -->
+    <div
+      class="post-body"
+      v-html="$page.post.bodyHtml"
+    />
   </Layout>
 </template>
-
 <page-query>
 query getPost($path: String!) {
-	post (path: $path) {
+  post (path: $path) {
     created
     title
     bodyHtml
@@ -35,15 +43,15 @@ query getPost($path: String!) {
 
 <script>
 export default {
-  metaInfo() {
+  metaInfo () {
     return {
       title: this.$page.post.title
-    };
+    }
   },
-  mounted() {
-    document.querySelector('[href="/blog"]').classList.add("active--exact");
+  mounted () {
+    document.querySelector('[href="/blog"]').classList.add('active--exact')
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -58,11 +66,13 @@ export default {
   h5,
   h6,
   p,
-  ul, ol,
+  ul,
+  ol,
   & > img {
     margin-bottom: 20px;
   }
-  p img, img {
+  p img,
+  img {
     max-width: 100%;
   }
   & > img {
