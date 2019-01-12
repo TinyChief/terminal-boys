@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <header id="header">
-      <div class="row icons">
+      <!-- <div class="row icons">
         <div class="soc-icon">
           <a href="https://vk.com/cgm_chief" target="_blank">
             <i class="fab fa-vk"></i>
@@ -17,7 +17,7 @@
             <i class="fab fa-github"></i>
           </a>
         </div>
-      </div>
+      </div> -->
       <div class="row main">
         <strong id="title">
           <g-link :to="{ name: 'home' }">Terminal
@@ -40,23 +40,29 @@
         </nav>
       </div>
     </header>
-    <slot/>
-    <footer id="footer">
-    </footer>
+    <div class="wrapper">
+      <slot/>
+    </div>
+    <footer id="footer"></footer>
   </div>
 </template>
 
 <script>
-
 export default {
   metaInfo: {
     title: "FrontPage",
     link: [
       {
         rel: "stylesheet",
-        integrity: "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/",
+        integrity:
+          "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/",
         crossorigin: "anonymous",
         href: "https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      },
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css?family=PT+Serif:700|Open+Sans&subset=cyrillic"
       }
     ]
   }
@@ -68,8 +74,9 @@ export default {
 @import "~/styles/main.scss";
 
 body {
-  font-family: "Roboto", -apple-system, system-ui, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  // font-family: "Roboto", -apple-system, system-ui, BlinkMacSystemFont,
+  //   "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -140,6 +147,7 @@ a {
   .main {
     justify-content: space-between;
     position: relative;
+    align-items: flex-end;
     // border-bottom: 2px solid $bg;
     &::before {
       content: "";
@@ -158,12 +166,13 @@ a {
   font-size: 24px;
   text-transform: uppercase;
   line-height: 1;
+  padding-bottom: 7px;
 }
 
 nav {
   a {
     width: 130px;
-    padding: 15px 0 13px 25px;
+    padding: 12px 0 12px 25px;
     display: inline-block;
     border: 2px solid transparent;
     border-top-left-radius: 15px;
@@ -176,8 +185,8 @@ nav {
       content: "$";
       position: absolute;
       font-size: 20px;
-      left: 8px;
-      top: 11px;
+      left: 9px;
+      top: 9.5px;
       color: #73d0c5;
       opacity: 0;
     }

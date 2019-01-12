@@ -1,8 +1,6 @@
 <template>
   <Layout>
     <div>
-    <g-image alt="Example image" src="~/favicon.png" width="135"/>
-
     <Terminal/>
     </div>
   </Layout>
