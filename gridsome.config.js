@@ -4,7 +4,7 @@ module.exports = {
 
   plugins: [
     {
-      use: '~/md',
+      use: '~/md-it',
       options: {
         version: 'published',
         token: process.env.TOKEN, // Storyblok token

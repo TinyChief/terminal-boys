@@ -73,7 +73,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=PT+Serif:700|Open+Sans&subset=cyrillic'
+          'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=cyrillic'
       }
     ]
   }
@@ -177,6 +177,8 @@ a {
   text-transform: uppercase;
   line-height: 1;
   padding-bottom: 7px;
+  width: 100px;
+  display: flex;
 }
 
 nav {
