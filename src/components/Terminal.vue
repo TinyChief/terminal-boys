@@ -185,12 +185,15 @@ function executeCommand (c) {
 
 input[type="text"] {
   background-color: transparent;
+  font-family: 'Open Sans';
   color: var(--termFont);
   border: none;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.2;
   width: 100%;
   margin: 0;
+  padding-left: 4px;
+  padding-bottom: 0;
 }
 ul {
   margin: 0;
@@ -199,6 +202,8 @@ ul {
 li {
   list-style: none;
   margin: 0;
+  line-height: 1.2;
+
 }
 
 .output {

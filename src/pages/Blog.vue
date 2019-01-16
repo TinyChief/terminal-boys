@@ -50,7 +50,7 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: skyblue;
+  background-color: var(--hl);
   margin-right: 15px;
 }
 .post-item {

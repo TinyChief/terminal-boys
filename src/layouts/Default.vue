@@ -280,7 +280,7 @@ nav {
       font-size: 20px;
       left: 9px;
       top: 9.5px;
-      color: #73d0c5;
+      color: var(--hl);
       opacity: 0;
     }
 
@@ -313,7 +313,7 @@ nav {
       }
     }
     .fa-square-full {
-      color: #73d0c5;
+      color: var(--hl);
       transform: scale(0.8, 1.3);
       opacity: 0;
     }
