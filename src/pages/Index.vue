@@ -1,9 +1,7 @@
 <template>
   <Layout>
-    <div>
-      <Terminal />
-    </div>
-  </Layout>
+    <Terminal />
+</Layout>
 </template>
 
 <script>

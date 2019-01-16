@@ -11,7 +11,7 @@
         <div class="prompt">
           <i class="fas fa-terminal" />
           <div class="divider" />
-          <div>{{ prompt }}</div>
+          <!-- <div>{{ prompt }}</div> -->
         </div>
         <span class="user-input">
           {{ item.input }}
@@ -28,7 +28,7 @@
       >
         <i class="fas fa-terminal" />
         <div class="divider" />
-        <div>{{ prompt }}</div>
+        <!-- <div>{{ prompt }}</div> -->
       </div>
       <input
         id="command"
@@ -81,7 +81,7 @@ export default {
       } else if (ans === 'No such command') {
         this.list.push({
           input: userInput,
-          output: `⚠️ ${ans}`,
+          output: `${ans}`,
           status: 'not-found'
         })
       } else {
@@ -133,10 +133,10 @@ function executeCommand (c) {
   display: block;
   width: 100%;
   height: 400px;
-  background-color: transparent;
+  background-color: var(--termBg);
   border: 2px solid $fontColor;
   border-radius: 10px;
-  color: $fontColor;
+  color: var(--termFont);
   font-size: 16px;
   padding: 8px 12px 100px 12px;
   overflow: scroll;
@@ -145,8 +145,8 @@ function executeCommand (c) {
 .prompt {
   display: inline-flex;
   align-items: center;
-  color: navy;
-  background-color: $bg;
+  color: var(--termPromptFont);
+  background-color: var(--termPromptBg);
   margin-right: 15px;
   padding-left: 5px;
   font-weight: 500;
@@ -164,10 +164,11 @@ function executeCommand (c) {
     border-bottom: 10px solid transparent;
   }
   i {
-    background-color: $bg;
+    background-color: var(--termPromptBg);
   }
   div {
     background-color: whitesmoke;
+    color: black;
     padding-right: 5px;
     line-height: 1.3;
   }
@@ -178,18 +179,21 @@ function executeCommand (c) {
   height: 0;
   background-color: whitesmoke;
   border-top: 10px solid transparent;
-  border-left: 10px solid $bg;
+  border-left: 10px solid var(--termPromptBg);
   border-bottom: 10px solid transparent;
 }
 
 input[type="text"] {
   background-color: transparent;
-  color: $fontColor;
+  font-family: 'Open Sans';
+  color: var(--termFont);
   border: none;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.2;
   width: 100%;
   margin: 0;
+  padding-left: 4px;
+  padding-bottom: 0;
 }
 ul {
   margin: 0;
@@ -198,9 +202,12 @@ ul {
 li {
   list-style: none;
   margin: 0;
+  line-height: 1.2;
+
 }
 
 .output {
   margin: 4px 0 4px 0;
+  color: var(--termOutput)
 }
 </style>

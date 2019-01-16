@@ -57,33 +57,50 @@ export default {
 <style lang="scss">
 @import "../styles/vars.scss";
 
+p code, li code {
+  padding: 0 5px;
+  background-color: rgba(rgb(192, 179, 0), 0.5);
+}
+
+strong {
+  font-family: 'Open Sans';
+  font-weight: 700;
+}
+
 .post-header,
 .post-body {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  & > img {
-    margin-bottom: 20px;
+  h2 {
+    padding-top: 10px;
   }
-  p img,
-  img {
-    max-width: 100%;
+  h3 {
+    font-family: 'Open Sans';
+    font-size: 24px;
+    // padding-top: 20px;
   }
-  & > img {
+  p, ul, li, strong, em {
+    font-size: 17px;
+  }
+  p > img {
+    width: 100%;
+  }
+  > * {
     margin-bottom: 20px;
   }
 }
 
+.image-container {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
 .post-body {
-  // * {
-  //   font-size: 17px;
-  // }
+  p:nth-of-type(1) {
+    font-weight: 100;
+    font-style: italic;
+    // font-size: 17px;
+  }
   a {
     text-decoration: underline;
   }
@@ -93,10 +110,16 @@ export default {
     font-size: 17px;
     letter-spacing: 0.12px;
   }
-  ul {
+  > ul, ol {
     padding-left: 30px;
-    li {
+    > li {
       list-style: disc;
+      > ul, ol {
+        margin: 6px 0;
+        li {
+          list-style: none
+        }
+      }
     }
   }
 

@@ -1,3 +1,24 @@
 $bg: #F2C94C;
 $bgFront: #303030;
 $fontColor: #C1C1C1;
+
+html {
+  --bg: #303030;
+  --font: #C1C1C1;
+  --bg2: #F2C94C;
+  --termBg: #303030;
+  --termFont: white;
+  --termOutput: #A599E9;
+  --termPromptBg: #73d0c5;
+  --termPromptFont: white;
+  --hl: #73d0c5;
+}
+
+
+// BACKGROUND: 
+// DARK THEME: #303030
+// LIGHT THEME: #181818
+
+// FONT:
+// DARK THEME: #C1C1C1
+// LIGHT THEME: black

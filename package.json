@@ -3,12 +3,12 @@
   "private": true,
   "scripts": {
     "build": "gridsome build",
-    "develop": "gridsome develop",
+    "develop": "nodemon ./mdtest/1.md && exec gridsome develop",
     "explore": "gridsome explore"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "gridsome": "^0.4.3",
+    "gridsome": "^0.4.4",
     "rehype-stringify": "^5.0.0",
     "remark-parse": "^6.0.3",
     "remark-rehype": "^4.0.0",
@@ -25,6 +25,8 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.1.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-block-image": "0.0.3",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   }

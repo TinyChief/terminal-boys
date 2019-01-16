@@ -1,8 +1,20 @@
 const StoryblokClient = require('storyblok-js-client')
-var unified = require('unified')
-var markdown = require('remark-parse')
-var remark2rehype = require('remark-rehype')
-var html = require('rehype-stringify')
+const md = require('markdown-it')()
+const blockImagePlugin = require('markdown-it-block-image')
+// const fs = require('fs')
+
+md.use(blockImagePlugin, {
+  outputContainer: 'div',
+  containerClassName: 'image-container'
+})
+
+function markdownToHtml (mdText) {
+  // const mdText = fs.readFileSync('mdtest/1.md', 'utf-8')
+  console.log(mdText)
+  return md.render(mdText)
+}
+
+// console.log(markdownToHtml())
 
 module.exports = function (api, options) {
   var Storyblok = new StoryblokClient({
@@ -34,6 +46,7 @@ module.exports = function (api, options) {
         fields: {
           published: item.published_at,
           created: item.created_at,
+          // bodyHTML: markdownToHtml(),
           bodyHTML: markdownToHtml(item.content.body),
           head: item.content.head || 'Прочитать...',
           ...item.content
@@ -41,16 +54,4 @@ module.exports = function (api, options) {
       })
     }
   })
-}
-
-function markdownToHtml (md) {
-  let processedMarkdown = null
-  unified()
-    .use(markdown)
-    .use(remark2rehype)
-    .use(html)
-    .process(md, (err, data) => {
-      processedMarkdown = data || err
-    })
-  return processedMarkdown.contents
 }
