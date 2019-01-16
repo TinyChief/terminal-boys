@@ -49,6 +49,13 @@
             <i class="fas fa-square-full" />
           </g-link>
         </nav>
+        <div class="toggle-themer">
+          <i class="fas fa-ellipsis-v" />
+        </div>
+        <div class="themer hidden">
+          <div class="switcher dark" />
+          <div class="switcher light" />
+        </div>
       </div>
     </header>
     <div class="wrapper">
@@ -76,16 +83,88 @@ export default {
           'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=cyrillic'
       }
     ]
+  },
+  mounted () {
+    // THEME SWITCHER TOGGLE
+    const themer = document.querySelector('.themer')
+    const toggleThemer = document.querySelector('.toggle-themer')
+    toggleThemer.addEventListener('click', () => {
+      // themer.style.display === 'none'
+      //   ? themer.style.display = 'flex'
+      //   : themer.style.display = 'none'
+      themer.classList.toggle('hidden')
+    })
+    // THEME TOGGLE
+    const switches = document.querySelectorAll('.switcher')
+    const htmlTag = document.getElementsByTagName('HTML')[0]
+    const themeColors = {
+      dark: {
+        bg: '#303030',
+        font: '#C1C1C1'
+      },
+      light: {
+        bg: 'rgb(255, 255, 242)',
+        font: '#181818'
+      }
+    }
+
+    switches.forEach(el => {
+      el.addEventListener('click', e => {
+        const selectedTheme = e.target.classList[1];
+        ['font', 'bg'].forEach(el =>
+          htmlTag
+            .style
+            .setProperty(`--${el}`, themeColors[selectedTheme][el])
+        )
+        themer.classList.toggle('hidden')
+      })
+    })
   }
 }
 </script>
 
 <style lang="scss">
 @import "~/styles/main.scss";
+.toggle-themer {
+  font-size: 20px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 5px;
+  color: var(--font);
+  cursor: pointer;
+}
+.themer {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  transform: translateY(100%);
+  background-color: var(--bg2);
+  border-bottom-left-radius: 20px;
+  .dark {
+    background-color: #303030;
+    border: 2px solid #c1c1c1;
+  }
+  .light {
+    background-color: rgb(255, 255, 242);
+    border: 2px solid black;
+  }
+}
+.hidden {
+  display: none;
+}
+.switcher {
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: coral;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
 body {
-  // font-family: "Roboto", -apple-system, system-ui, BlinkMacSystemFont,
-  //   "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
@@ -96,7 +175,7 @@ body {
   }
   background-color: $bg;
   height: 100vh;
-  color: $fontColor;
+  color: var(--font);
 }
 
 a {
@@ -111,7 +190,7 @@ a {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
-  background: $bgFront;
+  background-color: var(--bg);
 }
 
 #footer {
@@ -158,13 +237,15 @@ a {
     justify-content: space-between;
     position: relative;
     align-items: flex-end;
+    padding-right: 25px;
+    // position: relative;
     // border-bottom: 2px solid $bg;
     &::before {
       content: "";
       position: absolute;
       width: 100%;
       height: 2px;
-      background-color: $bg;
+      background-color: var(--bg2);
       bottom: 0;
     }
   }
@@ -189,7 +270,7 @@ nav {
     border: 2px solid transparent;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border-bottom: 2px solid $bg;
+    border-bottom: 2px solid var(--bg2);
     position: relative;
     transition: all 0.2s ease-in-out;
 
@@ -239,9 +320,9 @@ nav {
   }
 
   .active--exact {
-    border: 2px solid $bg;
+    border: 2px solid var(--bg2);
     &:after {
-      background: $bgFront;
+      background: var(--bg);
       opacity: 1;
       height: 2px;
     }
