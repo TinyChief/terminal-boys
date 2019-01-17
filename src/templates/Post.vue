@@ -1,5 +1,8 @@
 <template>
   <Layout>
+    <div class="progress-bar">
+      <div class="progress" />
+    </div>
     <div class="post-header">
       <h1>{{ $page.post.title }}</h1>
       <p>
@@ -25,10 +28,7 @@
     </div>
     <hr>
     <!-- eslint-disable -->
-    <div
-      class="post-body"
-      v-html="$page.post.bodyHtml"
-    />
+    <div class="post-body" v-html="$page.post.bodyHtml"/>
   </Layout>
 </template>
 <page-query>
@@ -48,8 +48,51 @@ export default {
       title: this.$page.post.title
     }
   },
+  data () {
+    return {
+      postH: null,
+      progress: 1
+    }
+  },
   mounted () {
     document.querySelector('[href="/blog"]').classList.add('active--exact')
+    /*
+     * ProgressbBar handler
+     */
+    const postBody = document.querySelector('.post-body')
+    const footer = document.querySelector('#footer')
+    const progressBar = document.getElementsByClassName('progress')[0]
+    const img = document.querySelectorAll('img')
+    let loadedImgCounter = 0
+    let progressBarWidth = 0
+    // If page is not include images
+    if (img.length === 0) setProgressBarWidth()
+
+    img.forEach(el => {
+      el.addEventListener('load', loaded)
+    })
+
+    function setProgressBarWidth () {
+      // compute progressbar width
+      progressBarWidth =
+        (window.scrollY /
+          (postBody.clientHeight -
+            window.innerHeight +
+            postBody.offsetTop +
+            footer.clientHeight)) *
+        window.innerWidth
+      // set .progress css width property
+      progressBar.style.width = `${progressBarWidth}px`
+    }
+
+    // Detect when all images are loaded and then add progress bar
+    function loaded () {
+      loadedImgCounter++
+      // when all images are loaded then init progressBar
+      if (loadedImgCounter === img.length) {
+        document.addEventListener('scroll', e => setProgressBarWidth())
+      }
+    }
   }
 }
 </script>
@@ -57,13 +100,29 @@ export default {
 <style lang="scss">
 @import "../styles/vars.scss";
 
-p code, li code {
+.progress-bar {
+  min-width: 100%;
+  min-height: 5px;
+  display: block;
+  width: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.progress {
+  min-height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+p code,
+li code {
   padding: 0 5px;
   background-color: rgba(rgb(192, 179, 0), 0.5);
 }
 
 strong {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-weight: 700;
 }
 
@@ -73,11 +132,15 @@ strong {
     padding-top: 10px;
   }
   h3 {
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 24px;
     // padding-top: 20px;
   }
-  p, ul, li, strong, em {
+  p,
+  ul,
+  li,
+  strong,
+  em {
     font-size: 17px;
   }
   p > img {
@@ -110,14 +173,16 @@ strong {
     font-size: 17px;
     letter-spacing: 0.12px;
   }
-  > ul, ol {
+  > ul,
+  ol {
     padding-left: 30px;
     > li {
       list-style: disc;
-      > ul, ol {
+      > ul,
+      ol {
         margin: 6px 0;
         li {
-          list-style: none
+          list-style: none;
         }
       }
     }

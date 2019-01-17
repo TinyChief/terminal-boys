@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "gridsome build",
-    "develop": "nodemon ./mdtest/1.md && exec gridsome develop",
+    "develop": "gridsome develop",
     "explore": "gridsome explore"
   },
   "dependencies": {
