@@ -76,12 +76,12 @@ export default {
           'sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/',
         crossorigin: 'anonymous',
         href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css'
-      },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=cyrillic'
       }
+      // {
+      //   rel: 'stylesheet',
+      //   href:
+      //     'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=cyrillic'
+      // }
     ]
   },
   mounted () {
@@ -104,7 +104,7 @@ export default {
       },
       light: {
         bg: 'rgb(255, 255, 242)',
-        font: '#181818'
+        font: 'rgb(74, 74, 74)'
       }
     }
 
@@ -164,20 +164,6 @@ export default {
   cursor: pointer;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 16px;
-  * {
-    box-sizing: inherit;
-  }
-  background-color: $bg;
-  height: 100vh;
-  color: var(--font);
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -198,6 +184,8 @@ a {
 }
 
 #header {
+  font-family: var(--sans);
+  font-size: 18px;
   .row {
     display: flex;
     margin-bottom: 10px;
@@ -255,6 +243,7 @@ a {
   // width: min-content;
   text-align: right;
   font-size: 24px;
+  font-family: var(--sans);
   text-transform: uppercase;
   line-height: 1;
   padding-bottom: 7px;
@@ -279,7 +268,7 @@ nav {
       position: absolute;
       font-size: 20px;
       left: 9px;
-      top: 9.5px;
+      top: 13.5px;
       color: var(--hl);
       opacity: 0;
     }

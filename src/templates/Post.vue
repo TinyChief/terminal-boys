@@ -5,25 +5,34 @@
     </div>
     <div class="post-header">
       <h1>{{ $page.post.title }}</h1>
-      <p>
-        Вадим Юлдашбаев,
-        <span class="publish-date">
-          {{
-            new Date($page.post.created).toLocaleDateString('ru-RU',
-                                                            {month: 'short', day: 'numeric', year: 'numeric'})
-          }}
-        </span>
-      </p>
-      <div class="tags">
-        <g-link :to="{ route: '/blog/asd' }">
-          javascript
-        </g-link>
-        <g-link :to="{ route: '/blog' }">
+      <div>
+        <p>
+          Вадим Юлдашбаев,
+          <span class="publish-date">
+            {{
+              new Date($page.post.created).toLocaleDateString('ru-RU',
+                                                              {month: 'short', day: 'numeric', year: 'numeric'})
+            }}
+          </span>
+        </p>
+        <div class="tags">
+          <a href="/blog">
+            javascript
+          </a>
+          <a href="/blog">
+            career
+          </a>
+          <a href="/blog">
+            article
+          </a>
+        </div>
+        <!-- <g-link :to="{ route: '/blog/' }"/> -->
+        <!-- <g-link :to="{ route: '/blog' }">
           career
-        </g-link>
-        <g-link :to="{ route: '/blog' }">
+        </g-link>-->
+        <!-- <g-link :to="{ route: '/blog' }">
           yandex
-        </g-link>
+        </g-link>-->
       </div>
     </div>
     <hr>
@@ -112,7 +121,7 @@ export default {
 }
 .progress {
   min-height: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(53, 22, 22, 0.5);
 }
 
 p code,
@@ -121,37 +130,36 @@ li code {
   background-color: rgba(rgb(192, 179, 0), 0.5);
 }
 
-strong {
-  font-family: "Open Sans";
-  font-weight: 700;
+.post-header {
+  font-family: var(--sans);
+  // margin-bottom: 20px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  p {
+    margin-bottom: 5px;
+  }
 }
 
 .post-header,
 .post-body {
-  h2 {
-    padding-top: 10px;
-  }
+  h2,
   h3 {
-    font-family: "Open Sans";
-    font-size: 24px;
-    // padding-top: 20px;
-  }
-  p,
-  ul,
-  li,
-  strong,
-  em {
-    font-size: 17px;
+    margin: 0 0 1rem 0;
+    line-height: 30px;
+    padding-top: 1rem;
   }
   p > img {
     width: 100%;
   }
   > * {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
   }
 }
 
 .image-container {
+  margin: 20px 0;
   width: 100%;
   img {
     width: 100%;
@@ -161,17 +169,16 @@ strong {
 .post-body {
   p:nth-of-type(1) {
     font-weight: 100;
-    font-style: italic;
+    // font-style: italic;
     // font-size: 17px;
   }
   a {
     text-decoration: underline;
   }
-  p {
-    font-family: "Open Sans", sans-serif;
-    line-height: 1.6;
-    font-size: 17px;
-    letter-spacing: 0.12px;
+  p,
+  li {
+    line-height: 36px;
+    font-size: 18px;
   }
   > ul,
   ol {
@@ -204,13 +211,6 @@ strong {
   }
 }
 
-.post-header {
-  margin-bottom: 20px;
-  p {
-    margin-bottom: 0;
-  }
-}
-
 @mixin tag($color) {
   background-color: $color;
   &::before {
@@ -219,45 +219,48 @@ strong {
     transform: translateX(-100%);
     width: 0;
     height: 0;
-    border-bottom: 22px solid;
-    border-bottom-color: $color;
+    border-top: 22px solid;
+    border-top-color: $color;
     border-left: 22px solid transparent;
   }
   &::after {
-    border-top-color: $color;
+    content: "";
+    position: absolute;
+    // transform: translateX(-100%);
+    width: 0;
+    height: 0;
+    border-bottom: 22px solid;
+    border-bottom-color: $color;
+    border-right: 22px solid transparent;
   }
 }
 
 .tags {
   // padding-left: 20px;
+  display: flex;
+  justify-content: flex-end;
   a {
     margin: 0px 11px;
-    color: $bgFront;
-    &::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-top: 22px solid;
-      border-right: 22px solid transparent;
-    }
-    &:nth-child(1) {
-      margin-left: 0;
+    color: #303030;
+    line-height: 22px;
+    position: relative;
+    &:nth-child(3) {
       background-color: salmon;
-      padding-left: 10px;
-      &::after {
+      padding-right: 11px;
+      &::before {
         content: "";
         position: absolute;
         width: 0;
         height: 0;
+        left: -22px;
         border-top: 22px solid salmon;
-        border-right: 22px solid transparent;
+        border-left: 22px solid transparent;
       }
     }
     &:nth-child(2) {
       @include tag(skyblue);
     }
-    &:nth-child(3) {
+    &:nth-child(1) {
       @include tag(seagreen);
     }
   }

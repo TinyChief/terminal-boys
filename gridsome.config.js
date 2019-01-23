@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteName: process.env.SITE_NAME || 'Dev personal',
   siteDescription: process.env.SITE_DESC || 'Personal site of web developer.',

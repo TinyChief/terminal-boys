@@ -57,11 +57,14 @@ export default {
   display: flex;
   margin-bottom: 20px;
   h3 {
+    margin: 0;
+    padding: 0;
     margin-bottom: 5px;
   }
   p {
     color: rgba($fontColor, 0.5);
     font-size: 15px;
+    margin: 0;
   }
 }
 </style>

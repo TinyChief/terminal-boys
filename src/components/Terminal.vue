@@ -137,6 +137,7 @@ function executeCommand (c) {
   border: 2px solid $fontColor;
   border-radius: 10px;
   color: var(--termFont);
+  font-family: var(--sans);
   font-size: 16px;
   padding: 8px 12px 100px 12px;
   overflow: scroll;
@@ -185,7 +186,7 @@ function executeCommand (c) {
 
 input[type="text"] {
   background-color: transparent;
-  font-family: 'Open Sans';
+  font-family: var(--sans);
   color: var(--termFont);
   border: none;
   font-size: 16px;
