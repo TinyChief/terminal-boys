@@ -26,13 +26,6 @@
             article
           </a>
         </div>
-        <!-- <g-link :to="{ route: '/blog/' }"/> -->
-        <!-- <g-link :to="{ route: '/blog' }">
-          career
-        </g-link>-->
-        <!-- <g-link :to="{ route: '/blog' }">
-          yandex
-        </g-link>-->
       </div>
     </div>
     <hr>
