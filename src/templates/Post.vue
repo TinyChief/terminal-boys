@@ -229,6 +229,8 @@ li code {
     // transform: translateX(-100%);
     width: 0;
     height: 0;
+    top: 0;
+    right: -22px;
     border-bottom: 22px solid;
     border-bottom-color: $color;
     border-right: 22px solid transparent;
