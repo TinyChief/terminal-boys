@@ -3,11 +3,12 @@
   "private": true,
   "scripts": {
     "build": "gridsome build",
-    "develop": "nodemon ./mdtest/1.md && exec gridsome develop",
+    "develop": "gridsome develop",
     "explore": "gridsome explore"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
     "gridsome": "^0.4.4",
     "rehype-stringify": "^5.0.0",
     "remark-parse": "^6.0.3",

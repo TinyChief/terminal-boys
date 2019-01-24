@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <Terminal />
-</Layout>
+  </Layout>
 </template>
 
 <script>
