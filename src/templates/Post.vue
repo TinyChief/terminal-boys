@@ -120,7 +120,7 @@ export default {
 p code,
 li code {
   padding: 0 5px;
-  background-color: rgba(rgb(192, 179, 0), 0.5);
+  background-color: rgba(143, 143, 143, 0.5);
 }
 
 .post-header {
@@ -162,7 +162,7 @@ li code {
 .post-body {
   p:nth-of-type(1) {
     font-weight: 100;
-    // font-style: italic;
+    font-style: italic;
     // font-size: 17px;
   }
   a {
@@ -200,7 +200,7 @@ li code {
   pre {
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid $fontColor;
+    border: 2px solid var(--font);
   }
 }
 
