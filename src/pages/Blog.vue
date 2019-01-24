@@ -67,4 +67,8 @@ export default {
     margin: 0;
   }
 }
+
+.post-text {
+  width: calc(100% - 100px);
+}
 </style>
