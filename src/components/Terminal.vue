@@ -32,6 +32,7 @@
       </div>
       <input
         id="command"
+        autocomplete="off"
         type="text"
         tabindex="1"
         @change="handleInput"
@@ -131,7 +132,7 @@ function executeCommand (c) {
 
 .wrapper {
   display: block;
-  width: 100%;
+  // width: 100%;
   height: 400px;
   background-color: var(--termBg);
   border: 2px solid $fontColor;

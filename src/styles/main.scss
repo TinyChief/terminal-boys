@@ -3,7 +3,7 @@
 @import './fonts.scss';
 
 :root {
-  font-size: 18px;
+  font-size: 17px;
   box-sizing: border-box;
 }
 
@@ -14,7 +14,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  // font-size: 18px;
   * {
     box-sizing: inherit;
   }
@@ -40,10 +39,6 @@ h2 {
 }
 h3 {
   font-size: 24px;
-}
-
-p {
-  margin-bottom: 5px;
 }
 
 .wrapper {

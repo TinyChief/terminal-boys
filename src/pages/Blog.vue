@@ -62,7 +62,8 @@ export default {
     margin-bottom: 5px;
   }
   p {
-    color: rgba($fontColor, 0.5);
+    color: var(--font);
+    opacity: 0.8;
     font-size: 15px;
     margin: 0;
   }

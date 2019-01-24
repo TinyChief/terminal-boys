@@ -55,6 +55,33 @@
         <div class="themer hidden">
           <div class="switcher dark" />
           <div class="switcher light" />
+          <ul class="nav-mobile">
+            <li>
+              <g-link
+                class="nav__link-mobile"
+                :to="{ name: 'home' }"
+                data-name="home"
+              >
+                Главная
+              </g-link>
+            </li>
+            <li>
+              <g-link
+                class="nav__link-mobile"
+                :to="{ name: 'blog' }"
+              >
+                Блог
+              </g-link>
+            </li>
+            <li>
+              <g-link
+                class="nav__link-mobile"
+                :to="{ name: 'about' }"
+              >
+                Работы
+              </g-link>
+            </li>
+          </ul>
         </div>
       </div>
     </header>
@@ -112,9 +139,7 @@ export default {
       el.addEventListener('click', e => {
         const selectedTheme = e.target.classList[1];
         ['font', 'bg'].forEach(el =>
-          htmlTag
-            .style
-            .setProperty(`--${el}`, themeColors[selectedTheme][el])
+          htmlTag.style.setProperty(`--${el}`, themeColors[selectedTheme][el])
         )
         themer.classList.toggle('hidden')
       })
@@ -136,7 +161,11 @@ export default {
   cursor: pointer;
 }
 .themer {
+  @media only screen and (max-width: 768px) {
+    width: 140px;
+  }
   display: flex;
+  flex-wrap: wrap;
   position: absolute;
   right: 0;
   bottom: 2px;
@@ -157,8 +186,8 @@ export default {
 }
 .switcher {
   margin: 10px;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   background-color: coral;
   border-radius: 50%;
   cursor: pointer;
@@ -185,7 +214,6 @@ a {
 
 #header {
   font-family: var(--sans);
-  font-size: 18px;
   .row {
     display: flex;
     margin-bottom: 10px;
@@ -251,9 +279,28 @@ a {
   display: flex;
 }
 
-nav {
+.nav-mobile {
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+  margin-bottom: 10px;
+  li {
+    padding: 7px 0 7px 10px;
+    color: black;
+  }
   a {
-    width: 130px;
+    display: block;
+  }
+  width: 100%;
+}
+
+nav {
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+
+  a {
+    width: 110px;
     padding: 12px 0 12px 25px;
     display: inline-block;
     border: 2px solid transparent;
@@ -266,9 +313,9 @@ nav {
     &:before {
       content: "$";
       position: absolute;
-      font-size: 20px;
+      font-size: 21px;
       left: 9px;
-      top: 13.5px;
+      top: 9.5px;
       color: var(--hl);
       opacity: 0;
     }

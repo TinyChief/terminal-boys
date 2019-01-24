@@ -114,7 +114,8 @@ export default {
 }
 .progress {
   min-height: 100%;
-  background: rgba(53, 22, 22, 0.5);
+  background-color: var(--font);
+  opacity: 0.5;
 }
 
 p code,
@@ -129,6 +130,7 @@ li code {
   font-size: 16px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   p {
     margin-bottom: 5px;
@@ -139,7 +141,7 @@ li code {
 .post-body {
   h2,
   h3 {
-    margin: 0 0 1rem 0;
+    margin-bottom: 10px;
     line-height: 30px;
     padding-top: 1rem;
   }
@@ -160,6 +162,9 @@ li code {
 }
 
 .post-body {
+  em {
+    font-size: 17.5px;
+  }
   p:nth-of-type(1) {
     font-weight: 100;
     font-style: italic;
@@ -170,8 +175,8 @@ li code {
   }
   p,
   li {
-    line-height: 36px;
-    font-size: 18px;
+    line-height: 34px;
+    font-size: 17px;
   }
   > ul,
   ol {
