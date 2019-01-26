@@ -3,9 +3,10 @@
     <div class="progress-bar">
       <div class="progress" />
     </div>
-    <div class="post-header">
+    <!-- class="post-header" -->
+    <div id="main">
       <h1>{{ $page.post.title }}</h1>
-      <div>
+      <div class="post-info">
         <p>
           Вадим Юлдашбаев,
           <span class="publish-date">
@@ -27,10 +28,10 @@
           </a>
         </div>
       </div>
+      <hr>
+      <!-- eslint-disable -->
+      <div class="post-body" v-html="$page.post.bodyHtml"/>
     </div>
-    <hr>
-    <!-- eslint-disable -->
-    <div class="post-body" v-html="$page.post.bodyHtml"/>
   </Layout>
 </template>
 <page-query>
@@ -102,6 +103,17 @@ export default {
 <style lang="scss">
 @import "../styles/vars.scss";
 
+#main {
+  h1 {
+    margin-bottom: 8px;
+  }
+  p, li {
+    line-height: 34px;
+    font-size: 17px;
+  }
+
+}
+
 .progress-bar {
   min-width: 100%;
   min-height: 5px;
@@ -124,7 +136,7 @@ li code {
   background-color: rgba(143, 143, 143, 0.5);
 }
 
-.post-header {
+.post-info {
   font-family: var(--sans);
   // margin-bottom: 20px;
   font-size: 16px;
@@ -137,16 +149,12 @@ li code {
   }
 }
 
-.post-header,
 .post-body {
   h2,
   h3 {
     margin-bottom: 10px;
     line-height: 30px;
-    padding-top: 1rem;
-  }
-  p > img {
-    width: 100%;
+    // padding-top: 1rem;
   }
   > * {
     margin-bottom: 1rem;
@@ -168,15 +176,9 @@ li code {
   p:nth-of-type(1) {
     font-weight: 100;
     font-style: italic;
-    // font-size: 17px;
   }
   a {
     text-decoration: underline;
-  }
-  p,
-  li {
-    line-height: 34px;
-    font-size: 17px;
   }
   > ul,
   ol {
@@ -262,6 +264,23 @@ li code {
     }
     &:nth-child(1) {
       @include tag(seagreen);
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #main {
+    p, li {
+      font-size: 15px;
+      line-height: 28px;
+    }
+  }
+  .post-body {
+    > * {
+      margin-bottom: 5pxƒ;
+    }
+    ul, ol {
+      padding-left: 15px;
     }
   }
 }

@@ -131,6 +131,9 @@ function executeCommand (c) {
 }
 
 .wrapper {
+  @media only screen and (max-width: 480px) {
+    height: 200px;
+  }
   display: block;
   // width: 100%;
   height: 400px;
