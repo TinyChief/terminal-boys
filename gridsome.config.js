@@ -1,18 +1,21 @@
 require('dotenv').config()
 
 module.exports = {
-  siteName: process.env.SITE_NAME || 'Dev personal',
-  siteDescription: process.env.SITE_DESC || 'Personal site of web developer.',
+  siteName: process.env.SITE_NAME || 'Вадим Юлдашбаев | Блог | Личная страница',
+  siteDescription: process.env.SITE_DESC || 'Personal site of Vadim Yuldashbaev.',
 
   plugins: [
     {
       use: '~/md-it',
       options: {
-        version: 'published',
-        token: process.env.TOKEN, // Storyblok token
         route: '/blog/:slug',
         typeName: 'Post',
-        folder: 'blog'
+        queryParams: {
+          version: 'published',
+          starts_with: 'blog/',
+          token: process.env.TOKEN,
+          is_startpage: false
+        }
       }
     }
   ]

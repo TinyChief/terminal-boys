@@ -1,7 +1,6 @@
 const StoryblokClient = require('storyblok-js-client')
 const md = require('markdown-it')()
 const blockImagePlugin = require('markdown-it-block-image')
-// const fs = require('fs')
 
 md.use(blockImagePlugin, {
   outputContainer: 'div',
@@ -9,12 +8,9 @@ md.use(blockImagePlugin, {
 })
 
 function markdownToHtml (mdText) {
-  // const mdText = fs.readFileSync('mdtest/1.md', 'utf-8')
   console.log(mdText)
   return md.render(mdText)
 }
-
-// console.log(markdownToHtml())
 
 module.exports = function (api, options) {
   var Storyblok = new StoryblokClient({
@@ -23,10 +19,7 @@ module.exports = function (api, options) {
 
   api.loadSource(async store => {
     let data
-    await Storyblok.get('cdn/stories/', {
-      version: options.version,
-      starts_with: options.folder
-    })
+    await Storyblok.get('cdn/stories/', options.queryParams)
       .then(response => {
         data = response.data
       })
@@ -46,7 +39,6 @@ module.exports = function (api, options) {
         fields: {
           published: item.published_at,
           created: item.created_at,
-          // bodyHTML: markdownToHtml(),
           bodyHTML: markdownToHtml(item.content.body),
           head: item.content.head || 'Прочитать...',
           ...item.content

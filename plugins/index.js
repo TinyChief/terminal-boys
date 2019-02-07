@@ -8,8 +8,9 @@ module.exports = function (api, options) {
   api.loadSource(async store => {
     let data
     await Storyblok.get('cdn/stories/', {
-      version: options.version,
-      starts_with: options.folder
+      // version: options.version,
+      // starts_with: options.folder
+      ...options.queryParams
     }).then(response => {
       data = response.data
     })
