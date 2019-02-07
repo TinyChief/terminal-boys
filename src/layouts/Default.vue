@@ -116,9 +116,6 @@ export default {
     const themer = document.querySelector('.themer')
     const toggleThemer = document.querySelector('.toggle-themer')
     toggleThemer.addEventListener('click', () => {
-      // themer.style.display === 'none'
-      //   ? themer.style.display = 'flex'
-      //   : themer.style.display = 'none'
       themer.classList.toggle('hidden')
     })
     // THEME TOGGLE
@@ -199,6 +196,9 @@ a {
 }
 
 .layout {
+  @media only screen and (max-width: 768px) {
+    padding: 10px 15px;
+  }
   padding-top: 10px;
   max-width: 900px;
   min-height: 100vh;
@@ -214,9 +214,9 @@ a {
 
 #header {
   font-family: var(--sans);
+  margin-bottom: 20px;
   .row {
     display: flex;
-    margin-bottom: 10px;
   }
 
   .soc-icon {
