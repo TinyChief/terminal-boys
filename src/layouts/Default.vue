@@ -1,30 +1,39 @@
 <template>
   <div class="layout">
     <header id="header">
-      <!-- <div class="row icons">
-        <div class="soc-icon">
-          <a href="https://vk.com/cgm_chief" target="_blank">
-            <i class="fab fa-vk"></i>
-          </a>
-    </div>
-    <div class="soc-icon">
-      <a href="https://twitter.com/narsacgm" target="_blank">
-        <i class="fab fa-twitter"></i>
-      </a>
-    </div>
-    <div class="soc-icon">
-      <a href="https://github.com/TinyChief" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-      </div>-->
       <div class="row main">
-        <strong id="title">
+        <div class="row icons">
+          <div class="soc-icon">
+            <a
+              href="https://vk.com/cgm_chief"
+              target="_blank"
+            >
+              <i class="fab fa-vk" />
+            </a>
+          </div>
+          <div class="soc-icon">
+            <a
+              href="https://twitter.com/narsacgm"
+              target="_blank"
+            >
+              <i class="fab fa-twitter" />
+            </a>
+          </div>
+          <div class="soc-icon">
+            <a
+              href="https://github.com/TinyChief"
+              target="_blank"
+            >
+              <i class="fab fa-github-alt" />
+            </a>
+          </div>
+        </div>
+        <!-- <strong id="title">
           <g-link :to="{ name: 'home' }">
             Terminal
             <br>Boys
           </g-link>
-        </strong>
+        </strong> -->
         <nav class="nav">
           <g-link
             class="nav__link"
@@ -95,7 +104,6 @@
 <script>
 export default {
   metaInfo: {
-    title: 'FrontPage',
     link: [
       {
         rel: 'stylesheet',
@@ -124,18 +132,20 @@ export default {
     const themeColors = {
       dark: {
         bg: '#303030',
-        font: '#C1C1C1'
+        font: '#C1C1C1',
+        hl: '#73d0c5'
       },
       light: {
         bg: 'rgb(255, 255, 242)',
-        font: 'rgb(74, 74, 74)'
+        font: 'rgb(74, 74, 74)',
+        hl: '#4e3dad'
       }
     }
 
     switches.forEach(el => {
       el.addEventListener('click', e => {
         const selectedTheme = e.target.classList[1];
-        ['font', 'bg'].forEach(el =>
+        ['font', 'bg', 'hl'].forEach(el =>
           htmlTag.style.setProperty(`--${el}`, themeColors[selectedTheme][el])
         )
         themer.classList.toggle('hidden')
@@ -199,7 +209,7 @@ a {
   @media only screen and (max-width: 768px) {
     padding: 10px 15px;
   }
-  padding-top: 10px;
+  // padding-top: 10px;
   max-width: 900px;
   min-height: 100vh;
   margin: 0 auto;
@@ -218,7 +228,11 @@ a {
   .row {
     display: flex;
   }
-
+  .icons {
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 10px;
+    }
+  }
   .soc-icon {
     border-radius: 50%;
     width: 24px;
@@ -226,36 +240,34 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
-    border: 2px solid white;
+    margin-right: 12px;
+    overflow: hidden;
     i {
-      font-size: 15px;
-      color: white;
+      font-size: 20px;
+      color: var(--hl);
     }
 
-    &:nth-child(1) {
-      background-color: #ec5151;
-    }
-    &:nth-child(2) {
-      background-color: #f2c94c;
-    }
-    &:nth-child(3) {
-      background-color: white;
-      i {
-        font-size: 20px;
-        transform: scaleY(1.025);
-        color: #7ec553;
-      }
-    }
+    // &:nth-child(1) {
+    //   // background-color: #ec5151;
+    // }
+    // &:nth-child(2) {
+    //   // background-color: #f2c94c;
+    // }
+    // &:nth-child(3) {
+    //   background-color: white;
+    //   i {
+    //     font-size: 28px;
+    //     // transform: scaleY(0.95);
+    //     color: var(--bg);
+    //   }
+    // }
   }
 
   .main {
     justify-content: space-between;
     position: relative;
-    align-items: flex-end;
+    align-items: center;
     padding-right: 25px;
-    // position: relative;
-    // border-bottom: 2px solid $bg;
     &::before {
       content: "";
       position: absolute;

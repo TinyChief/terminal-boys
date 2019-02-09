@@ -1,6 +1,6 @@
 <template>
   <div
-    id="wrapper"
+    id="terminal"
     class="wrapper"
   >
     <ul>
@@ -11,7 +11,6 @@
         <div class="prompt">
           <i class="fas fa-terminal" />
           <div class="divider" />
-          <!-- <div>{{ prompt }}</div> -->
         </div>
         <span class="user-input">
           {{ item.input }}
@@ -23,7 +22,6 @@
     </ul>
     <div class="command-line">
       <div
-        id="terminal"
         class="prompt"
       >
         <i class="fas fa-terminal" />
@@ -56,11 +54,11 @@ export default {
   },
   mounted () {
     // INIT wrapper, commandInput and terminal
-    this.wrapper = document.querySelector('#wrapper')
-    this.commandInput = document.querySelector('#command')
     this.terminal = document.querySelector('#terminal')
+    this.commandInput = document.querySelector('#command')
+    this.prompt = document.querySelector('.prompt')
 
-    this.wrapper.addEventListener('click', () => {
+    this.terminal.addEventListener('click', () => {
       this.commandInput.focus()
     })
   },
@@ -70,9 +68,9 @@ export default {
       const ans = executeCommand(userInput)
 
       // Make input dissapper for 150ms
-      this.terminal.style.opacity = 0
+      this.prompt.style.opacity = 0
       setTimeout(() => {
-        this.terminal.style.opacity = 1
+        this.prompt.style.opacity = 1
       }, 150)
 
       if (ans === 'clear') {
@@ -130,7 +128,11 @@ function executeCommand (c) {
   align-items: center;
 }
 
-.wrapper {
+.hidden {
+  display: none !important;
+}
+
+#terminal {
   @media only screen and (max-width: 480px) {
     height: 200px;
   }

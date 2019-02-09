@@ -114,6 +114,15 @@ export default {
 
 }
 
+@media only screen and (max-width: 480px) {
+  #main {
+    p, li, em, strong {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+}
+
 .progress-bar {
   min-width: 100%;
   min-height: 5px;
@@ -138,7 +147,6 @@ li code {
 
 .post-info {
   font-family: var(--sans);
-  // margin-bottom: 20px;
   font-size: 16px;
   display: flex;
   justify-content: space-between;
@@ -152,17 +160,17 @@ li code {
 .post-body {
   h2,
   h3 {
-    margin-bottom: 10px;
-    line-height: 30px;
-    // padding-top: 1rem;
+    line-height: 46px;
+    margin-bottom: 0;
   }
   > * {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
+    margin-top: 0;
   }
 }
 
 .image-container {
-  margin: 20px 0;
+  margin: 10px 0 !important;
   width: 100%;
   img {
     width: 100%;
@@ -182,7 +190,7 @@ li code {
   }
   > ul,
   ol {
-    padding-left: 30px;
+    padding-left: 20px;
     > li {
       list-style: disc;
       > ul,
@@ -194,15 +202,19 @@ li code {
       }
     }
   }
+  @media only screen and (max-width: 480px) {
+    > * {
+      margin-bottom: 15px;
+    }
+    > ul, ol {
+      padding-left: 20px;
+    }
+  }
 
   ol {
-    padding-left: 30px;
     li {
       list-style: decimal;
     }
-  }
-  li {
-    line-height: 1.5;
   }
   pre {
     padding: 10px;
@@ -268,20 +280,4 @@ li code {
   }
 }
 
-@media only screen and (max-width: 480px) {
-  #main {
-    p, li {
-      font-size: 15px;
-      line-height: 28px;
-    }
-  }
-  .post-body {
-    > * {
-      margin-bottom: 5pxƒ;
-    }
-    ul, ol {
-      padding-left: 15px;
-    }
-  }
-}
 </style>
