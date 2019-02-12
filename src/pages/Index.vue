@@ -49,7 +49,7 @@
         </li>
       </div>
     </div>
-    <div class="terminal-wrapper">
+    <div class="terminal-wrapper hidden">
       <Terminal />
     </div>
   </Layout>
@@ -77,10 +77,10 @@ import Terminal from '~/components/Terminal.vue'
 export default {
   components: { Terminal },
   metaInfo: {},
-  mounted () {
-    const terminalWrapper = document.querySelector('.terminal-wrapper')
-    terminalWrapper.classList.add('hidden')
-  },
+  // mounted () {
+  //   const terminalWrapper = document.querySelector('.terminal-wrapper')
+  //   terminalWrapper.classList.add('hidden')
+  // },
   methods: {
     showTerminal: function () {
       const terminalWrapper = document.querySelector('.terminal-wrapper')
