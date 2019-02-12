@@ -27,6 +27,14 @@
               <i class="fab fa-github-alt" />
             </a>
           </div>
+          <div class="soc-icon">
+            <a
+              href="/"
+              target="_blank"
+            >
+              <i class="fa fa-home" />
+            </a>
+          </div>
         </div>
         <!-- <strong id="title">
           <g-link :to="{ name: 'home' }">
@@ -69,7 +77,6 @@
               <g-link
                 class="nav__link-mobile"
                 :to="{ name: 'home' }"
-                data-name="home"
               >
                 Главная
               </g-link>
@@ -102,22 +109,9 @@
 </template>
 
 <script>
+
 export default {
   metaInfo: {
-    link: [
-      {
-        rel: 'stylesheet',
-        integrity:
-          'sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/',
-        crossorigin: 'anonymous',
-        href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css'
-      },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=cyrillic'
-      }
-    ]
   },
   mounted () {
     // THEME SWITCHER TOGGLE
@@ -161,7 +155,7 @@ export default {
   font-size: 20px;
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   padding: 10px 5px;
   color: var(--font);

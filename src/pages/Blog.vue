@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div>
-      <a
+      <li
         v-for="item in $page.allPost.edges"
         :key="item.node.id"
         :href="item.node.path"
@@ -11,10 +11,12 @@
           {{ item.node.icon }}
         </div>
         <div class="post-text">
-          <h3>{{ item.node.title }}</h3>
+          <g-link :to="item.node.path">
+            <h3>{{ item.node.title }}</h3>
+          </g-link>
           <p>{{ item.node.head }}</p>
         </div>
-      </a>
+      </li>
     </div>
   </Layout>
 </template>
@@ -45,31 +47,4 @@ export default {
 
 <style lang="scss">
 @import "../styles/vars.scss";
-
-.post-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--hl);
-  margin-right: 15px;
-}
-.post-item {
-  display: flex;
-  margin-bottom: 20px;
-  h3 {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 5px;
-  }
-  p {
-    color: var(--font);
-    opacity: 0.8;
-    font-size: 15px;
-    margin: 0;
-  }
-}
-
-.post-text {
-  width: calc(100% - 100px);
-}
 </style>
