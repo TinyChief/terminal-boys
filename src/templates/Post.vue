@@ -45,10 +45,18 @@ query getPost($path: String!) {
 </page-query>
 
 <script>
+import hljs from 'highlight.js'
+
 export default {
   metaInfo () {
     return {
-      title: this.$page.post.title
+      title: this.$page.post.title,
+      link: [
+        {
+          rel: 'stylesheet',
+          href: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css'
+        }
+      ]
     }
   },
   data () {
@@ -58,6 +66,11 @@ export default {
     }
   },
   mounted () {
+    // HighlightJS Initialization
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block)
+    })
+
     document.querySelector('[href="/blog"]').classList.add('active--exact')
     /*
      * ProgressbBar handler
@@ -102,6 +115,7 @@ export default {
 
 <style lang="scss">
 @import "../styles/vars.scss";
+@import "../styles/highlightjs.scss";
 
 #main {
   h1 {
@@ -120,6 +134,9 @@ export default {
       font-size: 16px;
       line-height: 28px;
     }
+    h2, h3 {
+      font-size: 26px;
+    }
   }
 }
 
@@ -137,12 +154,6 @@ export default {
   min-height: 100%;
   background-color: var(--font);
   opacity: 0.5;
-}
-
-p code,
-li code {
-  padding: 0 5px;
-  background-color: rgba(143, 143, 143, 0.5);
 }
 
 .post-info {
@@ -172,8 +183,13 @@ li code {
 .image-container {
   margin: 10px 0 !important;
   width: 100%;
+  text-align: center;
   img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 500px;
+    @media only screen and (max-width: 480px) {
+      max-height: 350px
+    }
   }
 }
 
@@ -182,7 +198,7 @@ li code {
     font-size: 17.5px;
   }
   p:nth-of-type(1) {
-    font-weight: 100;
+    // font-weight: 100;
     font-style: italic;
   }
   a {
@@ -217,9 +233,7 @@ li code {
     }
   }
   pre {
-    padding: 10px;
     border-radius: 10px;
-    border: 2px solid var(--font);
   }
 }
 
