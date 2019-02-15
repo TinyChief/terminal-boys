@@ -76,7 +76,9 @@ import Terminal from '~/components/Terminal.vue'
 
 export default {
   components: { Terminal },
-  metaInfo: {},
+  metaInfo: {
+    title: 'Главная страница.'
+  },
   // mounted () {
   //   const terminalWrapper = document.querySelector('.terminal-wrapper')
   //   terminalWrapper.classList.add('hidden')

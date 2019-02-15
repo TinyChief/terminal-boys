@@ -5,10 +5,10 @@ export default function (Vue, { head }) {
     lang: 'en',
     charset: 'utf-8'
   }
-  head.title = 'Главная страница сайта Юлдашбаева Вадима'
+  // head.title = 'Главная страница сайта Юлдашбаева Вадима'
   head.meta.push({
     name: 'keywords',
-    content: 'Blog,HTMLCSS,JavaScript,Developer,Web'
+    content: 'Blog,HTML,CSS,JavaScript,Developer,Web'
   })
   head.meta.push({
     name: 'description',

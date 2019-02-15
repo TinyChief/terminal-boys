@@ -40,7 +40,7 @@ query allPost {
 <script>
 export default {
   metaInfo: {
-    title: 'BlogPage'
+    title: 'Мои статьи.'
   }
 }
 </script>
