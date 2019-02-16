@@ -79,10 +79,6 @@ export default {
   metaInfo: {
     title: 'Главная страница.'
   },
-  // mounted () {
-  //   const terminalWrapper = document.querySelector('.terminal-wrapper')
-  //   terminalWrapper.classList.add('hidden')
-  // },
   methods: {
     showTerminal: function () {
       const terminalWrapper = document.querySelector('.terminal-wrapper')

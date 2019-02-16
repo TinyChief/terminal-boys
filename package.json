@@ -2,9 +2,10 @@
   "name": "personal",
   "private": true,
   "scripts": {
-    "build": "gridsome build",
+    "build": "gridsome build && npm run purgecss",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "purgecss": "node_modules/purgecss/bin/purgecss --config ./purgecss.config.js --out ./dist/assets/css"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -13,6 +14,7 @@
     "highlight.js": "^9.14.2",
     "i": "^0.3.6",
     "npm": "^6.7.0",
+    "purgecss": "^1.1.0",
     "rehype-stringify": "^5.0.0",
     "remark-parse": "^6.0.3",
     "remark-rehype": "^4.0.0",

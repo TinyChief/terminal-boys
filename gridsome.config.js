@@ -26,9 +26,9 @@ module.exports = {
       .oneOf('normal') // normal, module
       .use('postcss-loader')
       .tap(options => {
-        if (process.env.NODE_ENV === 'production') {
-          options.plugins.push(...[require('@fullhuman/postcss-purgecss')])
-        }
+        // if (process.env.NODE_ENV === 'production') {
+        //   options.plugins.push(...[require('@fullhuman/postcss-purgecss')])
+        // }
         return options
       })
   }
