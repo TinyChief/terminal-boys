@@ -41,7 +41,7 @@
             Terminal
             <br>Boys
           </g-link>
-        </strong> -->
+        </strong>-->
         <nav class="nav">
           <g-link
             class="nav__link"
@@ -109,10 +109,8 @@
 </template>
 
 <script>
-
 export default {
-  metaInfo: {
-  },
+  metaInfo: {},
   mounted () {
     // THEME SWITCHER TOGGLE
     const themer = document.querySelector('.themer')
@@ -130,7 +128,7 @@ export default {
         hl: '#73d0c5'
       },
       light: {
-        bg: 'rgb(255, 255, 242)',
+        bg: 'rgb(246, 247, 248)',
         font: 'rgb(74, 74, 74)',
         hl: '#4e3dad'
       }
@@ -138,8 +136,8 @@ export default {
 
     switches.forEach(el => {
       el.addEventListener('click', e => {
-        const selectedTheme = e.target.classList[1];
-        ['font', 'bg', 'hl'].forEach(el =>
+        const selectedTheme = e.target.classList[1]
+        ;['font', 'bg', 'hl'].forEach(el =>
           htmlTag.style.setProperty(`--${el}`, themeColors[selectedTheme][el])
         )
         themer.classList.toggle('hidden')
@@ -150,16 +148,19 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~/styles/main.scss";
+@import '~/styles/main.scss';
 .toggle-themer {
   font-size: 20px;
   position: absolute;
   right: 0;
-  top: 40%;
+  top: 22px;
   transform: translateY(-50%);
   padding: 10px 5px;
   color: var(--font);
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    top: 12px
+  }
 }
 .themer {
   @media only screen and (max-width: 768px) {
@@ -201,15 +202,43 @@ a {
 
 .layout {
   @media only screen and (max-width: 768px) {
-    padding: 10px 15px;
+    padding: 10px 18px;
   }
-  // padding-top: 10px;
-  max-width: 900px;
+  max-width: 750px;
+  box-shadow: 0px -1px 27px 5px rgba(84, 84, 84, 0.75);
   min-height: 100vh;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 25px;
   background-color: var(--bg);
+  transition: box-shadow 2s ease-in;
+  // animation: rgb-shadow 3s infinite linear;
+}
+
+@keyframes rgb-shadow {
+  0% {
+    box-shadow: 0px -1px 27px 5px rgba(255, 126, 126, 0.35);
+  }
+  14% {
+    box-shadow: 0px -1px 27px 5px rgba(247, 255, 126, 0.35);
+  }
+  29% {
+    box-shadow: 0px -1px 27px 5px rgba(108, 255, 104, 0.35);
+  }
+  42% {
+    box-shadow: 0px -1px 27px 5px rgba(107, 255, 248, 0.35);
+  }
+  57% {
+    box-shadow: 0px -1px 27px 5px rgba(98, 114, 255, 0.35);
+  }
+  71% {
+    box-shadow: 0px -1px 27px 5px rgba(225, 86, 255, 0.35);
+  }
+  85% {
+    box-shadow: 0px -1px 27px 5px rgba(255, 93, 247, 0.35);
+  }
+  100% {
+    box-shadow: 0px -1px 27px 5px rgba(255, 126, 126, 0.35);
+  }
 }
 
 #footer {
@@ -219,6 +248,7 @@ a {
 #header {
   font-family: var(--sans);
   margin-bottom: 20px;
+  padding-top: 5px;
   .row {
     display: flex;
   }
@@ -263,7 +293,7 @@ a {
     align-items: center;
     padding-right: 25px;
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       height: 2px;
@@ -307,7 +337,7 @@ nav {
 
   a {
     width: 110px;
-    padding: 12px 0 12px 25px;
+    padding: 8.5px 0 8.5px 25px;
     display: inline-block;
     border: 2px solid transparent;
     border-top-left-radius: 15px;
@@ -317,17 +347,17 @@ nav {
     transition: all 0.2s ease-in-out;
 
     &:before {
-      content: "$";
+      content: '$';
       position: absolute;
       font-size: 21px;
       left: 9px;
-      top: 9.5px;
+      top: 5.5px;
       color: var(--hl);
       opacity: 0;
     }
 
     &:after {
-      content: "";
+      content: '';
       height: 0px;
       width: 100%;
       position: absolute;

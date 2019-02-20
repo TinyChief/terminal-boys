@@ -77,6 +77,22 @@ export default {
         this.list = []
         e.target.value = ''
         return
+      } else if (ans === 'Have fun!') { // Set rainbow shadow for .layout
+        this.list.push({
+          input: userInput,
+          output: ans,
+          status: 'found'
+        })
+
+        document.querySelector('.layout').style.animation = 'rgb-shadow 3s infinite linear'
+      } else if (ans === 'Looks boring, right?') { // Return default shadow
+        this.list.push({
+          input: userInput,
+          output: ans,
+          status: 'found'
+        })
+
+        document.querySelector('.layout').style.animation = 'none'
       } else if (ans === 'No such command') {
         this.list.push({
           input: userInput,
@@ -98,7 +114,11 @@ export default {
 const commands = [
   {
     name: 'birth',
-    answer: '10/10/1997'
+    answer: new Date('10/10/1997').toLocaleString('ru-RU', {
+      month: 'long',
+      year: 'numeric',
+      day: '2-digit'
+    })
   },
   {
     name: 'study',
@@ -111,6 +131,14 @@ const commands = [
   {
     name: 'clear',
     answer: 'clear'
+  },
+  {
+    name: 'shadow-rgb',
+    answer: 'Have fun!'
+  },
+  {
+    name: 'shadow-default',
+    answer: 'Looks boring, right?'
   }
 ]
 

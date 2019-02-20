@@ -23,7 +23,7 @@
 
 <page-query>
 query allPost {
-  allPost {
+  allPost (order: ASC) {
     edges {
       node {
         title
@@ -40,7 +40,7 @@ query allPost {
 <script>
 export default {
   metaInfo: {
-    title: 'BlogPage'
+    title: 'Cтатьи'
   }
 }
 </script>
