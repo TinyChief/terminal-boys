@@ -18,7 +18,7 @@
             </a>
             на разные темы, а также поискать
             <a
-              href="#terminal"
+              href="#"
               @click="showTerminal"
             >
               пасхалки
@@ -57,7 +57,7 @@
 
 <page-query>
 query allPost {
-  allPost(perPage: 3) {
+  allPost(perPage: 3, order: ASC) {
     edges {
       node {
         title
@@ -77,7 +77,7 @@ import Terminal from '~/components/Terminal.vue'
 export default {
   components: { Terminal },
   metaInfo: {
-    title: 'Главная страница.'
+    title: 'Главная'
   },
   methods: {
     showTerminal: function () {

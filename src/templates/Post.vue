@@ -54,7 +54,8 @@ export default {
       link: [
         {
           rel: 'stylesheet',
-          href: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css'
+          href:
+            '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css'
         }
       ]
     }
@@ -67,7 +68,7 @@ export default {
   },
   mounted () {
     // HighlightJS Initialization
-    document.querySelectorAll('pre code').forEach((block) => {
+    document.querySelectorAll('pre code').forEach(block => {
       hljs.highlightBlock(block)
     })
 
@@ -117,24 +118,38 @@ export default {
 @import "../styles/vars.scss";
 @import "../styles/highlightjs.scss";
 
+code {
+  background-color: #f7f7f9;
+  color: #861939;
+  border: 1px solid #e1e1e8;
+  border-radius: 0.1em;
+  font-size: 0.8em;
+  padding: 0.05em 0.2em;
+  white-space: nowrap;
+}
+
 #main {
   h1 {
     margin-bottom: 8px;
   }
-  p, li {
+  p,
+  li {
     line-height: 34px;
     font-size: 17px;
   }
-
 }
 
 @media only screen and (max-width: 480px) {
   #main {
-    p, li, em, strong {
+    p,
+    li,
+    em,
+    strong {
       font-size: 16px;
       line-height: 28px;
     }
-    h2, h3 {
+    h2,
+    h3 {
       font-size: 26px;
     }
   }
@@ -188,7 +203,7 @@ export default {
     max-width: 100%;
     max-height: 500px;
     @media only screen and (max-width: 480px) {
-      max-height: 350px
+      max-height: 350px;
     }
   }
 }
@@ -222,7 +237,8 @@ export default {
     > * {
       margin-bottom: 15px;
     }
-    > ul, ol {
+    > ul,
+    ol {
       padding-left: 20px;
     }
   }
@@ -293,5 +309,4 @@ export default {
     }
   }
 }
-
 </style>
