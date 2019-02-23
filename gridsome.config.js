@@ -5,31 +5,44 @@ module.exports = {
   titleTemplate: '%s — Вадим Юлдашбаев | Блог | Личная страница',
   siteDescription: process.env.SITE_DESC || 'Personal site of Vadim Yuldashbaev.',
 
+  transformers: {
+    remark: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      anchorClassName: 'icon icon-link',
+      plugins: [
+        // ...global plugins
+      ]
+    }
+  },
+
   plugins: [
     {
-      use: '~/md-it',
+      use: '@gridsome/source-filesystem',
       options: {
-        route: '/blog/:slug',
+        path: 'blog/**/*.md',
         typeName: 'Post',
-        queryParams: {
-          version: 'published',
-          starts_with: 'blog/',
-          token: process.env.TOKEN,
-          is_startpage: false
+        remark: {
+          plugins: [
+            // ...local plugins
+          ]
         }
       }
     }
-  ],
-  chainWebpack: config => {
-    config.module
-      .rule('scss') // css, sass, scss, less, postcss, stylus
-      .oneOf('normal') // normal, module
-      .use('postcss-loader')
-      .tap(options => {
-        // if (process.env.NODE_ENV === 'production') {
-        //   options.plugins.push(...[require('@fullhuman/postcss-purgecss')])
-        // }
-        return options
-      })
-  }
+  ]
+  // plugins: [
+  //   {
+  //     use: '~/md-it',
+  //     options: {
+  //       route: '/blog/:slug',
+  //       typeName: 'Post',
+  //       queryParams: {
+  //         version: 'published',
+  //         starts_with: 'blog/',
+  //         token: process.env.TOKEN,
+  //         is_startpage: false
+  //       }
+  //     }
+  //   }
+  // ]
 }

@@ -1,15 +1,22 @@
 <template>
   <Layout>
+    <!-- <Pie /> -->
     <div>
       <li
         v-for="item in $page.allPost.edges"
         :key="item.node.id"
-        :href="item.node.path"
         class="post-item"
       >
-        <div class="post-icon">
-          {{ item.node.icon }}
-        </div>
+        <a
+          :href="item.node.path"
+          class="post-icon"
+        >
+          <Pie
+            :id="item.node.id"
+            :data-id="item.node.id"
+            :tags="item.node.tags"
+          />
+        </a>
         <div class="post-text">
           <g-link :to="item.node.path">
             <h3>{{ item.node.title }}</h3>
@@ -23,7 +30,7 @@
 
 <page-query>
 query allPost {
-  allPost (order: ASC) {
+  allPost (order: DESC) {
     edges {
       node {
         title
@@ -31,6 +38,7 @@ query allPost {
         created
         path
         head
+        tags
       }
     }
   }
@@ -38,7 +46,9 @@ query allPost {
 </page-query>
 
 <script>
+import Pie from '~/components/Pie.vue'
 export default {
+  components: { Pie },
   metaInfo: {
     title: 'Cтатьи'
   }

@@ -166,6 +166,7 @@ export default {
   @media only screen and (max-width: 768px) {
     width: 140px;
   }
+  z-index: 999;
   display: flex;
   flex-wrap: wrap;
   position: absolute;
@@ -270,21 +271,6 @@ a {
       font-size: 20px;
       color: var(--hl);
     }
-
-    // &:nth-child(1) {
-    //   // background-color: #ec5151;
-    // }
-    // &:nth-child(2) {
-    //   // background-color: #f2c94c;
-    // }
-    // &:nth-child(3) {
-    //   background-color: white;
-    //   i {
-    //     font-size: 28px;
-    //     // transform: scaleY(0.95);
-    //     color: var(--bg);
-    //   }
-    // }
   }
 
   .main {
@@ -319,9 +305,9 @@ a {
   @media only screen and (min-width: 768px) {
     display: none;
   }
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   li {
-    padding: 7px 0 7px 10px;
+    padding: 3px 0 3px 10px;
     color: black;
   }
   a {

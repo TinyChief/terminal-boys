@@ -20,7 +20,9 @@
     "remark-rehype": "^4.0.0",
     "storyblok-js-client": "^1.0.21",
     "unified": "^7.1.0",
-    "unified-stream": "^1.0.4"
+    "unified-stream": "^1.0.4",
+    "@gridsome/source-filesystem": "^0.3.0",
+    "@gridsome/transformer-remark": "^0.2.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.1.0",
