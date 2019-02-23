@@ -118,12 +118,12 @@ export default {
 
 <style lang="scss">
 @import '../styles/vars.scss';
-// @import '../styles/highlightjs.scss';
+@import '../styles/highlightjs.scss';
 
 code {
   font-family: "Roboto Mono";
   letter-spacing: 0.2px;
-  padding: 3px;
+  padding: 2px 4px;
   border-radius: 3px;
   background-color: #282a36;
   color: #f8f8f2;
@@ -132,15 +132,12 @@ code {
 code.hljs {
   border-radius: 0.1em;
   font-size: 1em;
-  padding: 1.2em 1.4em !important;
+  padding: 1em !important;
   line-height: 1.5;
   white-space: pre;
 }
 
 #main {
-  h1 {
-    margin-bottom: 8px;
-  }
   p,
   li {
     line-height: 32px;
@@ -195,7 +192,6 @@ code.hljs {
 .post-body {
   h2,
   h3 {
-    line-height: 46px;
     margin-bottom: 0;
   }
   > * {
@@ -313,84 +309,4 @@ code.hljs {
     }
   }
 }
-
-// HIGHLIGHT.JS
-/* purgecss start ignore */
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  color: #abb2bf;
-  background: #282c34;
-}
-
-.hljs-comment,
-.hljs-quote {
-  color: #5c6370;
-  font-style: italic;
-}
-
-.hljs-doctag,
-.hljs-keyword,
-.hljs-formula {
-  color: #c678dd;
-}
-
-.hljs-section,
-.hljs-name,
-.hljs-selector-tag,
-.hljs-deletion,
-.hljs-subst {
-  color: #e06c75;
-}
-
-.hljs-literal {
-  color: #56b6c2;
-}
-
-.hljs-string,
-.hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta-string {
-  color: #98c379;
-}
-
-.hljs-built_in,
-.hljs-class .hljs-title {
-  color: #e6c07b;
-}
-
-.hljs-attr,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-type,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
-  color: #d19a66;
-}
-
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
-.hljs-selector-id,
-.hljs-title {
-  color: #61aeee;
-}
-
-.hljs-emphasis {
-  font-style: italic;
-}
-
-.hljs-strong {
-  font-weight: bold;
-}
-
-.hljs-link {
-  text-decoration: underline;
-}
-/* purgecss end ignore */
 </style>

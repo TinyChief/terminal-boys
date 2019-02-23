@@ -248,7 +248,6 @@ a {
 
 #header {
   font-family: var(--sans);
-  margin-bottom: 20px;
   padding-top: 5px;
   .row {
     display: flex;

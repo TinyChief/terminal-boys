@@ -34,8 +34,6 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.1.0",
-    "markdown-it": "^8.4.2",
-    "markdown-it-block-image": "0.0.3",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   }

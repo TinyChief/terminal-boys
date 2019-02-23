@@ -110,7 +110,7 @@ export default {
 .post-headers {
   margin-bottom: 25px;
   h2 {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
 }
 .text {
@@ -119,9 +119,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  h1 {
-    margin-bottom: 4px;
-  }
   a {
     border-bottom: 1px var(--hl);
     border-bottom-style: dotted;
