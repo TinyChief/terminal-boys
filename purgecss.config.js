@@ -19,5 +19,6 @@ module.exports = {
   css: [
     './dist/assets/css/*.css'
   ],
+  whitelistPatterns: [/hljs/],
   rejected: true
 }
