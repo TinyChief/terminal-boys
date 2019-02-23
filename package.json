@@ -8,6 +8,13 @@
     "purgecss": "node_modules/purgecss/bin/purgecss --config ./purgecss.config.js --out ./dist/assets/css"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-brands-svg-icons": "^5.7.2",
+    "@fortawesome/free-regular-svg-icons": "^5.7.2",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/vue-fontawesome": "^0.1.5",
+    "@gridsome/source-filesystem": "^0.3.0",
+    "@gridsome/transformer-remark": "^0.2.0",
     "axios": "^0.18.0",
     "dotenv": "^6.2.0",
     "gridsome": "^0.5.0",
@@ -20,9 +27,7 @@
     "remark-rehype": "^4.0.0",
     "storyblok-js-client": "^1.0.21",
     "unified": "^7.1.0",
-    "unified-stream": "^1.0.4",
-    "@gridsome/source-filesystem": "^0.3.0",
-    "@gridsome/transformer-remark": "^0.2.0"
+    "unified-stream": "^1.0.4"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.1.0",

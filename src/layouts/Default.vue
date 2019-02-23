@@ -8,7 +8,8 @@
               href="https://vk.com/cgm_chief"
               target="_blank"
             >
-              <i class="fab fa-vk" />
+              <!-- <i class="fab fa-vk" /> -->
+              <font-awesome-icon :icon="['fab', 'vk']" />
             </a>
           </div>
           <div class="soc-icon">
@@ -16,7 +17,8 @@
               href="https://twitter.com/narsacgm"
               target="_blank"
             >
-              <i class="fab fa-twitter" />
+              <!-- <i class="fab fa-twitter" /> -->
+              <font-awesome-icon :icon="['fab', 'twitter']" />
             </a>
           </div>
           <div class="soc-icon">
@@ -24,7 +26,8 @@
               href="https://github.com/TinyChief"
               target="_blank"
             >
-              <i class="fab fa-github-alt" />
+              <!-- <i class="fab fa-github-alt" /> -->
+              <font-awesome-icon :icon="['fab', 'github-alt']" />
             </a>
           </div>
           <div class="soc-icon">
@@ -32,7 +35,8 @@
               href="/"
               target="_blank"
             >
-              <i class="fa fa-home" />
+              <font-awesome-icon :icon="['fa', 'home']" />
+              <!-- <i class="fa fa-home" /> -->
             </a>
           </div>
         </div>
@@ -49,25 +53,26 @@
             data-name="home"
           >
             Главная
-            <i class="fas fa-square-full" />
+            <font-awesome-icon :icon="['fas', 'square-full']" />
           </g-link>
           <g-link
             class="nav__link"
             :to="{ name: 'blog' }"
           >
             Блог
-            <i class="fas fa-square-full" />
+            <font-awesome-icon :icon="['fas', 'square-full']" />
           </g-link>
           <g-link
             class="nav__link"
             :to="{ name: 'about' }"
           >
             Работы
-            <i class="fas fa-square-full" />
+            <font-awesome-icon :icon="['fas', 'square-full']" />
           </g-link>
         </nav>
         <div class="toggle-themer">
-          <i class="fas fa-ellipsis-v" />
+          <!-- <i class="fas fa-ellipsis-v" /> -->
+          <font-awesome-icon :icon="['fas', 'ellipsis-v']" />
         </div>
         <div class="themer hidden">
           <div class="switcher dark" />
@@ -264,12 +269,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 12px;
+    margin-right: 15px;
     overflow: hidden;
-    i {
-      font-size: 20px;
-      color: var(--hl);
-    }
+    font-size: 20px;
+    color: var(--hl);
   }
 
   .main {
