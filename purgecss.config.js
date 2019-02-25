@@ -14,10 +14,12 @@
 module.exports = {
   content: [
     './dist/**/*.html',
+    './dist/blog/**/*.html',
     './dist/assets/js/*.js'
   ],
   css: [
     './dist/assets/css/*.css'
   ],
+  whitelistPatterns: [/hljs/],
   rejected: true
 }

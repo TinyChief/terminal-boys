@@ -37,9 +37,16 @@
           :href="item.node.path"
           class="post-item"
         >
-          <div class="post-icon">
-            {{ item.node.icon }}
-          </div>
+          <a
+            :href="item.node.path"
+            class="post-icon"
+          >
+            <Pie
+              :id="item.node.id"
+              :data-id="item.node.id"
+              :tags="item.node.tags"
+            />
+          </a>
           <div class="post-text">
             <g-link :to="item.node.path">
               <h3>{{ item.node.title }}</h3>
@@ -57,13 +64,14 @@
 
 <page-query>
 query allPost {
-  allPost(perPage: 3, order: ASC) {
+  allPost(perPage: 3, order: DESC) {
     edges {
       node {
         title
         id
         created
         path
+        tags
         head
       }
     }
@@ -73,9 +81,10 @@ query allPost {
 
 <script>
 import Terminal from '~/components/Terminal.vue'
+import Pie from '~/components/Pie.vue'
 
 export default {
-  components: { Terminal },
+  components: { Pie, Terminal },
   metaInfo: {
     title: 'Главная'
   },
@@ -101,7 +110,7 @@ export default {
 .post-headers {
   margin-bottom: 25px;
   h2 {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
 }
 .text {
@@ -110,9 +119,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  h1 {
-    margin-bottom: 4px;
-  }
   a {
     border-bottom: 1px var(--hl);
     border-bottom-style: dotted;

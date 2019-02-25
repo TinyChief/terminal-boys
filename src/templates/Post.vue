@@ -8,7 +8,7 @@
       <h1>{{ $page.post.title }}</h1>
       <div class="post-info">
         <p>
-          Вадим Юлдашбаев,
+          {{ $page.post.author }},
           <span class="publish-date">
             {{
               new Date($page.post.created).toLocaleDateString('ru-RU',
@@ -17,47 +17,49 @@
           </span>
         </p>
         <div class="tags">
-          <a href="/blog">
-            javascript
-          </a>
-          <a href="/blog">
-            career
-          </a>
-          <a href="/blog">
-            article
+          <a
+            v-for="tag in $page.post.tags"
+            :key="tag"
+            href="/blog"
+          >
+            {{ tag }}
           </a>
         </div>
       </div>
       <hr>
       <!-- eslint-disable -->
-      <div class="post-body" v-html="$page.post.bodyHtml"/>
+      <div class="post-body" v-html="$page.post.content"/>
     </div>
   </Layout>
 </template>
+
 <page-query>
 query getPost($path: String!) {
   post (path: $path) {
     created
     title
-    bodyHtml
+    content
+    tags
+    author
   }
 }
 </page-query>
 
 <script>
 import hljs from 'highlight.js'
+// import hljs from 'highlight.js/lib/highlight'
+// import javascript from 'highlight.js/lib/languages/javascript'
+// import css from 'highlight.js/lib/languages/css'
+// // import html from 'highlight.js/lib/languages/html'
+
+// hljs.registerLanguage('javascript', javascript)
+// hljs.registerLanguage('css', css)
+// hljs.registerLanguage('html', html)
 
 export default {
   metaInfo () {
     return {
-      title: this.$page.post.title,
-      link: [
-        {
-          rel: 'stylesheet',
-          href:
-            '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/default.min.css'
-        }
-      ]
+      title: this.$page.post.title
     }
   },
   data () {
@@ -115,27 +117,31 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../styles/vars.scss";
-@import "../styles/highlightjs.scss";
+@import '../styles/vars.scss';
+@import '../styles/highlightjs.scss';
 
 code {
-  background-color: #f7f7f9;
-  color: #861939;
-  border: 1px solid #e1e1e8;
+  font-family: "Roboto Mono";
+  letter-spacing: 0.2px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background-color: #282a36;
+  color: #f8f8f2;
+}
+
+code.hljs {
   border-radius: 0.1em;
-  font-size: 0.8em;
-  padding: 0.05em 0.2em;
-  white-space: nowrap;
+  font-size: 1em;
+  padding: 1em !important;
+  line-height: 1.5;
+  white-space: pre;
 }
 
 #main {
-  h1 {
-    margin-bottom: 8px;
-  }
   p,
   li {
-    line-height: 34px;
-    font-size: 17px;
+    line-height: 32px;
+    font-size: 16px;
   }
 }
 
@@ -186,7 +192,6 @@ code {
 .post-body {
   h2,
   h3 {
-    line-height: 46px;
     margin-bottom: 0;
   }
   > * {
@@ -209,6 +214,11 @@ code {
 }
 
 .post-body {
+  p > img {
+    max-width: 100%;
+    width: initial;
+    max-height: 450px;
+  }
   em {
     font-size: 17.5px;
   }
@@ -256,7 +266,7 @@ code {
 @mixin tag($color) {
   background-color: $color;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     transform: translateX(-100%);
     width: 0;
@@ -266,7 +276,7 @@ code {
     border-left: 22px solid transparent;
   }
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     // transform: translateX(-100%);
     width: 0;
@@ -288,23 +298,13 @@ code {
     color: #303030;
     line-height: 22px;
     position: relative;
-    &:nth-child(3) {
-      background-color: salmon;
-      padding-right: 11px;
-      &::before {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 0;
-        left: -22px;
-        border-top: 22px solid salmon;
-        border-left: 22px solid transparent;
-      }
+    &:nth-child(3n+3) {
+      @include tag(salmon)
     }
-    &:nth-child(2) {
+    &:nth-child(3n+2) {
       @include tag(skyblue);
     }
-    &:nth-child(1) {
+    &:nth-child(3n+1) {
       @include tag(seagreen);
     }
   }

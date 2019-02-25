@@ -3,14 +3,21 @@
   "private": true,
   "scripts": {
     "build": "gridsome build && npm run purgecss",
-    "develop": "gridsome develop",
+    "dev": "gridsome develop",
     "explore": "gridsome explore",
     "purgecss": "node_modules/purgecss/bin/purgecss --config ./purgecss.config.js --out ./dist/assets/css"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-brands-svg-icons": "^5.7.2",
+    "@fortawesome/free-regular-svg-icons": "^5.7.2",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/vue-fontawesome": "^0.1.5",
+    "@gridsome/source-filesystem": "^0.3.0",
+    "@gridsome/transformer-remark": "^0.2.0",
     "axios": "^0.18.0",
     "dotenv": "^6.2.0",
-    "gridsome": "^0.4.7",
+    "gridsome": "^0.5.0",
     "highlight.js": "^9.14.2",
     "i": "^0.3.6",
     "npm": "^6.7.0",
@@ -32,8 +39,6 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.1.0",
-    "markdown-it": "^8.4.2",
-    "markdown-it-block-image": "0.0.3",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   }

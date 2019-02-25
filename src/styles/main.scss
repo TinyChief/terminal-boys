@@ -1,12 +1,9 @@
 @import './vars.scss';
 @import './zero.scss';
 @import './fonts.scss';
-@import './fontawesome/fontawesome.scss';
-@import './fontawesome/solid.scss';
-@import './fontawesome/brands.scss';
 
 :root {
-  font-size: 17px;
+  font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -30,7 +27,7 @@ h2,
 h3,
 h4 {
   font-family: 'Helvetica Neue';
-  line-height: 1;
+  line-height: 1.5;
 }
 
 h1 {
@@ -46,7 +43,7 @@ h3 {
 p,
 li {
   line-height: 28px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 @media only screen and (max-width: 786px) {
@@ -75,7 +72,6 @@ li {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: var(--hl);
   margin-right: 15px;
 }
 .post-item {
@@ -84,13 +80,13 @@ li {
   h3 {
     margin: 0;
     padding: 0;
-    margin-bottom: 5px;
   }
   p {
     color: var(--font);
     opacity: 0.8;
     font-size: 15px;
     margin: 0;
+    line-height: 1.6;
   }
 }
 
