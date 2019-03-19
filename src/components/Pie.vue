@@ -17,10 +17,10 @@ export default {
   data () {
     return {
       mapper: {
-        vue: 'tomato',
-        react: 'purple',
+        vue: '#17bd95',
+        tech: 'tomato',
         javascript: '#ffe700',
-        other: 'purple'
+        other: '#4e3dad'
       }
     }
   },

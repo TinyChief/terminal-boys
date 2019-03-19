@@ -128,13 +128,13 @@ export default {
     const htmlTag = document.getElementsByTagName('HTML')[0]
     const themeColors = {
       dark: {
-        bg: '#303030',
-        font: '#C1C1C1',
-        hl: '#73d0c5'
+        bg: '#2D2B30',
+        font: 'rgba(255 ,255, 255, 0.9)',
+        hl: '#fff482'
       },
       light: {
         bg: 'rgb(246, 247, 248)',
-        font: 'rgb(74, 74, 74)',
+        font: '#202020',
         hl: '#4e3dad'
       }
     }
@@ -158,14 +158,11 @@ export default {
   font-size: 20px;
   position: absolute;
   right: 0;
-  top: 22px;
+  top: 50%;
   transform: translateY(-50%);
   padding: 10px 5px;
   color: var(--font);
   cursor: pointer;
-  @media only screen and (max-width: 768px) {
-    top: 12px
-  }
 }
 .themer {
   @media only screen and (max-width: 768px) {
@@ -176,10 +173,11 @@ export default {
   flex-wrap: wrap;
   position: absolute;
   right: 0;
-  bottom: 2px;
+  bottom: -5px;
   transform: translateY(100%);
-  background-color: var(--bg2);
-  border-bottom-left-radius: 20px;
+  background-color: white;
+  border: 2px solid var(--hl);
+  border-radius: 10px;
   .dark {
     background-color: #303030;
     border: 2px solid #c1c1c1;
@@ -207,14 +205,14 @@ a {
 }
 
 .layout {
-  @media only screen and (max-width: 768px) {
-    padding: 10px 18px;
-  }
-  max-width: 750px;
-  box-shadow: 0px -1px 27px 5px rgba(84, 84, 84, 0.75);
+  // @media only screen and (max-width: 768px) {
+  //   padding: 10px 18px;
+  // }
+  max-width: 760px;
+  box-shadow: 0px -2px 10px -2px rgba(84, 84, 84, 0.75);
   min-height: 100vh;
   margin: 0 auto;
-  padding: 0 25px;
+  // padding: 0 25px;
   background-color: var(--bg);
   transition: box-shadow 2s ease-in;
   // animation: rgb-shadow 3s infinite linear;
@@ -253,14 +251,14 @@ a {
 
 #header {
   font-family: var(--sans);
-  padding-top: 5px;
+  padding: 5px 25px;
+  @media only screen and (max-width: 768px) {
+    padding: 5px 18px;
+  }
   .row {
     display: flex;
-  }
-  .icons {
-    @media only screen and (max-width: 768px) {
-      margin-bottom: 10px;
-    }
+    min-height: 34px;
+    align-items: center
   }
   .soc-icon {
     border-radius: 50%;
@@ -280,14 +278,14 @@ a {
     position: relative;
     align-items: center;
     padding-right: 25px;
-    &::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background-color: var(--bg2);
-      bottom: 0;
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 2px;
+    //   background-color: var(--bg2);
+    //   bottom: 0;
+    // }
   }
 }
 
@@ -330,7 +328,7 @@ nav {
     border: 2px solid transparent;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border-bottom: 2px solid var(--bg2);
+    // border-bottom: 2px solid var(--bg2);
     position: relative;
     transition: all 0.2s ease-in-out;
 
@@ -380,12 +378,12 @@ nav {
   }
 
   .active--exact {
-    border: 2px solid var(--bg2);
-    &:after {
-      background: var(--bg);
-      opacity: 1;
-      height: 2px;
-    }
+    // border: 2px solid var(--bg2);
+    // &:after {
+    //   background: var(--bg);
+    //   opacity: 1;
+    //   height: 2px;
+    // }
 
     &:before {
       opacity: 1;
