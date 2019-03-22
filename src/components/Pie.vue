@@ -17,22 +17,19 @@ export default {
   data () {
     return {
       mapper: {
-        vue: 'tomato',
-        react: 'purple',
+        vue: '#17bd95',
+        tech: 'tomato',
         javascript: '#ffe700',
-        other: 'purple'
+        other: '#4e3dad'
       }
     }
   },
   mounted () {
-    console.log(this.tags)
-    console.log(this.id)
     function sliceSize (dataNum, dataTotal) {
       return (dataNum / dataTotal) * 360
     }
     function addSlice (sliceSize, pieElement, offset, sliceID, color) {
       const currentElement = document.querySelector(pieElement)
-      console.log(currentElement)
       currentElement.innerHTML += ("<div class='slice " + sliceID + "'><span></span></div>")
       offset = offset - 1
       var sizeRotation = -179 + sliceSize

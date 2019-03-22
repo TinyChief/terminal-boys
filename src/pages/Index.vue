@@ -3,8 +3,18 @@
     <div class="introduction">
       <div class="text">
         <div class="me">
-          <h1>Вадим Юлдашбаев</h1>
-          <p>Frontend разработчик, 21 год</p>
+          <h3>Привет <span>👋</span>,</h3>
+          <!-- <p>Привет <span>👋</span>,</p> -->
+          <h1>
+            <span class="common-text">
+              я
+            </span> Вадим Юлдашбаев
+          </h1>
+          <h3>
+            Frontend разработчик, <span class="common-text">
+              и мне 21 год
+            </span>
+          </h3>
         </div>
         <div class="site">
           <p>
@@ -107,6 +117,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.common-text {
+  font-weight: 400;
+  font-size: 16px
+}
 .post-headers {
   margin-bottom: 25px;
   h2 {

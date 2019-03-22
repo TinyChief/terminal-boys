@@ -273,7 +273,7 @@ code.hljs {
     height: 0;
     border-top: 22px solid;
     border-top-color: $color;
-    border-left: 22px solid transparent;
+    border-left: 16px solid transparent;
   }
   &::after {
     content: '';
@@ -282,10 +282,10 @@ code.hljs {
     width: 0;
     height: 0;
     top: 0;
-    right: -22px;
+    right: -16px;
     border-bottom: 22px solid;
     border-bottom-color: $color;
-    border-right: 22px solid transparent;
+    border-right: 16px solid transparent;
   }
 }
 
