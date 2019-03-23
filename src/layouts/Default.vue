@@ -27,9 +27,6 @@ a {
 }
 
 .layout {
-  // @media only screen and (max-width: 768px) {
-  //   padding: 10px 18px;
-  // }
   max-width: 760px;
   box-shadow: 0px -2px 10px -2px rgba(84, 84, 84, 0.75);
   min-height: 100vh;
@@ -37,7 +34,6 @@ a {
   // padding: 0 25px;
   background-color: var(--bg);
   transition: box-shadow 2s ease-in;
-  // animation: rgb-shadow 3s infinite linear;
 }
 
 @keyframes rgb-shadow {

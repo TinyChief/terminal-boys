@@ -20,6 +20,7 @@
         <div class="post-text">
           <g-link :to="item.node.path">
             <h3>{{ item.node.title }}</h3>
+            <h3 />
           </g-link>
           <p>{{ item.node.head }}</p>
         </div>
@@ -56,5 +57,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../styles/vars.scss";
+@import '../styles/vars.scss';
 </style>

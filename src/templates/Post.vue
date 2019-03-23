@@ -140,7 +140,7 @@ code.hljs {
 #main {
   p,
   li {
-    line-height: 32px;
+    line-height: 30px;
     font-size: 16px;
   }
 }
@@ -192,7 +192,7 @@ code.hljs {
 .post-body {
   h2,
   h3 {
-    margin-bottom: 0;
+    margin: 30px 0 10px 0;
   }
   > * {
     margin-bottom: 10px;
@@ -219,15 +219,19 @@ code.hljs {
     width: initial;
     max-height: 450px;
   }
-  em {
-    font-size: 17.5px;
-  }
+  // em {
+  //   font-size: 17.5px;
+  // }
   p:nth-of-type(1) {
     // font-weight: 100;
     font-style: italic;
   }
   a {
-    text-decoration: underline;
+    border-bottom: 1px var(--hl);
+    border-bottom-style: dotted;
+    color: var(--hl);
+    display: inline-block;
+    font-weight: 700;
   }
   > ul,
   ol {

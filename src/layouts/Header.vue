@@ -65,13 +65,17 @@
           class="nav__link"
           :to="{ name: 'about' }"
         >
-          Работы
+          Обо мне
           <font-awesome-icon :icon="['fas', 'square-full']" />
         </g-link>
       </nav>
-      <div class="toggle-themer">
-        <!-- <i class="fas fa-ellipsis-v" /> -->
-        <font-awesome-icon :icon="['fas', 'ellipsis-v']" />
+      <div
+        class="toggle-themer"
+        @click="handleThemer"
+      >
+        <font-awesome-icon
+          :icon="['fas', 'ellipsis-v']"
+        />
       </div>
       <div class="themer hidden">
         <div class="switcher dark" />
@@ -113,10 +117,6 @@ export default {
   mounted () {
     // THEME SWITCHER TOGGLE
     const themer = document.querySelector('.themer')
-    const toggleThemer = document.querySelector('.toggle-themer')
-    toggleThemer.addEventListener('click', () => {
-      themer.classList.toggle('hidden')
-    })
     // THEME TOGGLE
     const switches = document.querySelectorAll('.switcher')
     const htmlTag = document.getElementsByTagName('HTML')[0]
@@ -142,6 +142,12 @@ export default {
         themer.classList.toggle('hidden')
       })
     })
+  },
+  methods: {
+    handleThemer (e) {
+      const themer = document.querySelector('.themer')
+      themer.classList.toggle('hidden')
+    }
   }
 }
 </script>
@@ -154,9 +160,10 @@ export default {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  padding: 10px 5px;
+  padding: 10px;
   color: var(--font);
   cursor: pointer;
+  margin-right: -10px;
 }
 .themer {
   @media only screen and (max-width: 768px) {
