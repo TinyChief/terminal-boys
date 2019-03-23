@@ -227,11 +227,13 @@ code.hljs {
     font-style: italic;
   }
   a {
-    border-bottom: 1px var(--hl);
-    border-bottom-style: dotted;
+    // border-bottom: 1px var(--hl);
+    // border-bottom-style: dotted;
+    text-decoration: underline;
+    text-decoration-style: solid;
     color: var(--hl);
-    display: inline-block;
-    font-weight: 700;
+    // display: inline-block;
+    font-weight: 600;
   }
   > ul,
   ol {
