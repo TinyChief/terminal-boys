@@ -122,11 +122,10 @@ export default {
 
 code {
   font-family: "Roboto Mono";
-  letter-spacing: 0.2px;
-  padding: 2px 4px;
-  border-radius: 3px;
-  background-color: #282a36;
-  color: #f8f8f2;
+  padding: 2px;
+  border-radius: 7px;
+  background-color: var(--code);
+  color: var(--font);
 }
 
 code.hljs {

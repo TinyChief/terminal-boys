@@ -124,19 +124,21 @@ export default {
       dark: {
         bg: '#2D2B30',
         font: 'rgba(255 ,255, 255, 0.9)',
-        hl: '#fff482'
+        hl: '#fff482',
+        code: '#525252'
       },
       light: {
         bg: 'rgb(246, 247, 248)',
         font: '#202020',
-        hl: '#4e3dad'
+        hl: '#4e3dad',
+        code: '#dcdcdc'
       }
     }
 
     switches.forEach(el => {
       el.addEventListener('click', e => {
         const selectedTheme = e.target.classList[1]
-        ;['font', 'bg', 'hl'].forEach(el =>
+        ;['font', 'bg', 'hl', 'code'].forEach(el =>
           htmlTag.style.setProperty(`--${el}`, themeColors[selectedTheme][el])
         )
         themer.classList.toggle('hidden')
