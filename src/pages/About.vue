@@ -8,7 +8,7 @@
 <script>
 export default {
   metaInfo: {
-    title: 'AboutPage'
+    title: 'Обо мне'
   }
 }
 </script>

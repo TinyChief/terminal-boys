@@ -1,21 +1,48 @@
-// This is where project configuration and installed plugin options are located.
-// Learn more: https://gridsome.org/docs/config
+require('dotenv').config()
 
 module.exports = {
-  siteName: process.env.SITE_NAME || 'Dev personal',
-  siteDescription: process.env.SITE_DESC || 'Personal site of web developer.',
-  titleTemplate: process.env.SITE_TITLE || '%s - <siteName>',
+  siteName: process.env.SITE_NAME || 'Вадим Юлдашбаев | Блог | Личная страница',
+  titleTemplate: '%s — Вадим Юлдашбаев | Блог | Личная страница',
+  siteDescription: process.env.SITE_DESC || 'Personal site of Vadim Yuldashbaev.',
+
+  transformers: {
+    remark: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      anchorClassName: 'icon icon-link',
+      plugins: [
+        // ...global plugins
+      ]
+    }
+  },
 
   plugins: [
     {
-      use: '~/plugins',
+      use: '@gridsome/source-filesystem',
       options: {
-        version: 'published',
-        token: process.env.TOKEN || 'mv4E8eaPszE2EySWP7Cv6Qtt', // Storyblok token
-        route: '/blog/:slug',
+        path: 'blog/**/*.md',
         typeName: 'Post',
-        folder: 'blog'
+        remark: {
+          plugins: [
+            // ...local plugins
+          ]
+        }
       }
     }
   ]
+  // plugins: [
+  //   {
+  //     use: '~/md-it',
+  //     options: {
+  //       route: '/blog/:slug',
+  //       typeName: 'Post',
+  //       queryParams: {
+  //         version: 'published',
+  //         starts_with: 'blog/',
+  //         token: process.env.TOKEN,
+  //         is_startpage: false
+  //       }
+  //     }
+  //   }
+  // ]
 }

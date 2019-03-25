@@ -1,3 +1,19 @@
 $bg: #F2C94C;
 $bgFront: #303030;
 $fontColor: #C1C1C1;
+
+html {
+  --bg: rgb(246, 247, 248);
+  // --bg: rgb(74, 74, 74);
+  --font: #202020;
+  --bg2: #F2C94C;
+  --termBg: #303030;
+  --termFont: white;
+  --termOutput: #A599E9;
+  --termPromptBg: #73d0c5;
+  --termPromptFont: white;
+  --hl: #4e3dad;
+  --sans: 'Open Sans';
+  --serif: 'Helvetica Nueu';
+  --code: #dcdcdc
+}
