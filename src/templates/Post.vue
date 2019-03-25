@@ -122,11 +122,10 @@ export default {
 
 code {
   font-family: "Roboto Mono";
-  letter-spacing: 0.2px;
-  padding: 2px 4px;
-  border-radius: 3px;
-  background-color: #282a36;
-  color: #f8f8f2;
+  padding: 2px;
+  border-radius: 7px;
+  background-color: var(--code);
+  color: var(--font);
 }
 
 code.hljs {
@@ -140,7 +139,7 @@ code.hljs {
 #main {
   p,
   li {
-    line-height: 32px;
+    line-height: 30px;
     font-size: 16px;
   }
 }
@@ -192,7 +191,7 @@ code.hljs {
 .post-body {
   h2,
   h3 {
-    margin-bottom: 0;
+    margin: 30px 0 10px 0;
   }
   > * {
     margin-bottom: 10px;
@@ -219,15 +218,21 @@ code.hljs {
     width: initial;
     max-height: 450px;
   }
-  em {
-    font-size: 17.5px;
-  }
+  // em {
+  //   font-size: 17.5px;
+  // }
   p:nth-of-type(1) {
     // font-weight: 100;
     font-style: italic;
   }
   a {
+    // border-bottom: 1px var(--hl);
+    // border-bottom-style: dotted;
     text-decoration: underline;
+    text-decoration-style: solid;
+    color: var(--hl);
+    // display: inline-block;
+    font-weight: 600;
   }
   > ul,
   ol {

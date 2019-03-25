@@ -9,7 +9,7 @@
         :key="idx"
       >
         <div class="prompt">
-          <i class="fas fa-terminal" />
+          <font-awesome-icon :icon="['fas', 'terminal']" />
           <div class="divider" />
         </div>
         <span class="user-input">
@@ -24,7 +24,7 @@
       <div
         class="prompt"
       >
-        <i class="fas fa-terminal" />
+        <font-awesome-icon :icon="['fas', 'terminal']" />
         <div class="divider" />
         <!-- <div>{{ prompt }}</div> -->
       </div>
