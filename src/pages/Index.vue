@@ -11,9 +11,10 @@
             </span> Вадим Юлдашбаев
           </h1>
           <h3>
-            Frontend разработчик, <span class="common-text">
-              и мне 21 год
-            </span>
+            Frontend разработчик
+            <!-- <span class="common-text">
+              из Москвы
+            </span> -->
           </h3>
         </div>
         <div class="site">

@@ -121,7 +121,7 @@ export default {
 @import '../styles/highlightjs.scss';
 
 code {
-  font-family: "Roboto Mono";
+  font-family: 'Roboto Mono';
   padding: 2px;
   border-radius: 7px;
   background-color: var(--code);
@@ -303,13 +303,13 @@ code.hljs {
     color: #303030;
     line-height: 22px;
     position: relative;
-    &:nth-child(3n+3) {
-      @include tag(salmon)
+    &:nth-child(3n + 3) {
+      @include tag(salmon);
     }
-    &:nth-child(3n+2) {
+    &:nth-child(3n + 2) {
       @include tag(skyblue);
     }
-    &:nth-child(3n+1) {
+    &:nth-child(3n + 1) {
       @include tag(seagreen);
     }
   }
