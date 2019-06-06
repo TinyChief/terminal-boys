@@ -5,20 +5,20 @@
     </div>
     <!-- class="post-header" -->
     <div id="main">
-      <h1>{{ $page.post.title }}</h1>
+      <h1>{{ post.title }}</h1>
       <div class="post-info">
         <p>
-          {{ $page.post.author }},
+          {{ post.author }},
           <span class="publish-date">
             {{
-              new Date($page.post.created).toLocaleDateString('ru-RU',
+              new Date(post.created).toLocaleDateString('ru-RU',
                                                               {month: 'short', day: 'numeric', year: 'numeric'})
             }}
           </span>
         </p>
         <div class="tags">
           <a
-            v-for="tag in $page.post.tags"
+            v-for="tag in post.tags"
             :key="tag"
             href="/blog"
           >
@@ -28,7 +28,7 @@
       </div>
       <hr>
       <!-- eslint-disable -->
-      <div class="post-body" v-html="$page.post.content"/>
+      <div class="post-body" v-html="post.content"/>
     </div>
   </Layout>
 </template>
@@ -68,7 +68,19 @@ export default {
       progress: 1
     }
   },
+  computed: {
+    post () {
+      return this.$page.post
+    }
+  },
   mounted () {
+    // console.log('regex', this.$page.post.content.search(/!@\s(.*)\s@!/g))
+    let i = 0;
+    function replacer (match, p, offset, string) {
+      ++i
+      return `<span class="custom-tooltip">${i}<span>${p}</span></span>`
+    }
+    this.$page.post.content = this.$page.post.content.replace(/!@\s(.*)\s@!/g, replacer)
     // HighlightJS Initialization
     document.querySelectorAll('pre code').forEach(block => {
       hljs.highlightBlock(block)
@@ -119,7 +131,36 @@ export default {
 <style lang="scss">
 @import '../styles/vars.scss';
 @import '../styles/highlightjs.scss';
-
+.custom-tooltip {
+    position: relative;
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #cbd4ff;
+    border: 1px solid black;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:hover span, &:focus span {
+      display: block
+    }
+    span {
+      display: none;
+      top: -130%;
+      left: 50%;
+      transform: translate(-50%, -85%);form-origin: 0 0;
+      width: 150px;
+      padding: 6px;
+      font-size: 14px;
+      line-height: 1.2;
+      border-radius: 5px;
+      border: 1px solid black;
+      background-color: #cbd4ff;
+      position: absolute;
+    }
+}
 code {
   font-family: 'Roboto Mono';
   padding: 2px;
@@ -184,7 +225,7 @@ code.hljs {
   align-items: center;
   flex-wrap: wrap;
   p {
-    margin-bottom: 5px;
+   // margin-bottom: 5px;
   }
 }
 
@@ -218,20 +259,13 @@ code.hljs {
     width: initial;
     max-height: 450px;
   }
-  // em {
-  //   font-size: 17.5px;
-  // }
   p:nth-of-type(1) {
-    // font-weight: 100;
     font-style: italic;
   }
   a {
-    // border-bottom: 1px var(--hl);
-    // border-bottom-style: dotted;
     text-decoration: underline;
     text-decoration-style: solid;
     color: var(--hl);
-    // display: inline-block;
     font-weight: 600;
   }
   > ul,
@@ -307,10 +341,10 @@ code.hljs {
       @include tag(salmon);
     }
     &:nth-child(3n + 2) {
-      @include tag(skyblue);
+      @include tag(#9787eb);
     }
     &:nth-child(3n + 1) {
-      @include tag(seagreen);
+      @include tag(#60d76f);
     }
   }
 }

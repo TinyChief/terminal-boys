@@ -30,19 +30,4 @@ module.exports = {
       }
     }
   ]
-  // plugins: [
-  //   {
-  //     use: '~/md-it',
-  //     options: {
-  //       route: '/blog/:slug',
-  //       typeName: 'Post',
-  //       queryParams: {
-  //         version: 'published',
-  //         starts_with: 'blog/',
-  //         token: process.env.TOKEN,
-  //         is_startpage: false
-  //       }
-  //     }
-  //   }
-  // ]
 }

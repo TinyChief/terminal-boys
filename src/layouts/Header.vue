@@ -291,16 +291,6 @@ nav {
     position: relative;
     transition: all 0.2s ease-in-out;
 
-    &:before {
-      content: '$';
-      position: absolute;
-      font-size: 21px;
-      left: 9px;
-      top: 5.5px;
-      color: var(--hl);
-      opacity: 0;
-    }
-
     &:after {
       content: '';
       height: 0px;
@@ -314,7 +304,7 @@ nav {
 
     &.active--exact .fa-square-full {
       animation-name: example;
-      animation-duration: 0.9s;
+      animation-duration: 1.2s;
       animation-iteration-count: infinite;
     }
 

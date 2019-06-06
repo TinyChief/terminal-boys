@@ -52,6 +52,9 @@ export default {
   components: { Pie },
   metaInfo: {
     title: 'Cтатьи'
+  },
+  beforeMount () {
+    console.log(this.$page.allPost)
   }
 }
 </script>

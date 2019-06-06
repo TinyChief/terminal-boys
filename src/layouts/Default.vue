@@ -27,7 +27,7 @@ a {
 }
 
 .layout {
-  max-width: 760px;
+  max-width: 860px;
   box-shadow: 0px -2px 10px -2px rgba(84, 84, 84, 0.75);
   min-height: 100vh;
   margin: 0 auto;
