@@ -1,10 +1,10 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faSquareFull, faEllipsisV, faTerminal } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faSquareFull, faEllipsisV, faTerminal, faMoon, faSun, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faVk, faTwitter, faGithubAlt } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faHome, faTerminal, faVk, faTwitter, faGithubAlt, faSquareFull, faEllipsisV)
+library.add(faHome, faTerminal, faVk, faTwitter, faGithubAlt, faSquareFull, faEllipsisV, faMoon, faSun, faBars)
 
 export default function (Vue, { head }) {
   head.meta.push({

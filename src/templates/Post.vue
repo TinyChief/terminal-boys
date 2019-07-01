@@ -12,7 +12,7 @@
           <span class="publish-date">
             {{
               new Date(post.created).toLocaleDateString('ru-RU',
-                                                              {month: 'short', day: 'numeric', year: 'numeric'})
+                                                        {month: 'short', day: 'numeric', year: 'numeric'})
             }}
           </span>
         </p>
@@ -75,7 +75,7 @@ export default {
   },
   mounted () {
     // console.log('regex', this.$page.post.content.search(/!@\s(.*)\s@!/g))
-    let i = 0;
+    let i = 0
     function replacer (match, p, offset, string) {
       ++i
       return `<span class="custom-tooltip">${i}<span>${p}</span></span>`
@@ -150,7 +150,8 @@ export default {
       display: none;
       top: -130%;
       left: 50%;
-      transform: translate(-50%, -85%);form-origin: 0 0;
+      transform: translate(-50%, -85%);
+      transform-origin: 0 0;
       width: 150px;
       padding: 6px;
       font-size: 14px;
@@ -159,6 +160,7 @@ export default {
       border: 1px solid black;
       background-color: #cbd4ff;
       position: absolute;
+      line-height: 1.4;
     }
 }
 code {
@@ -224,9 +226,6 @@ code.hljs {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  p {
-   // margin-bottom: 5px;
-  }
 }
 
 .post-body {

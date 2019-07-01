@@ -1,7 +1,7 @@
 <template>
   <header id="header">
     <div class="row main">
-      <div class="row icons">
+      <div class="row icons left">
         <div class="soc-icon">
           <a
             href="https://vk.com/cgm_chief"
@@ -39,73 +39,73 @@
           </a>
         </div>
       </div>
-      <!-- <strong id="title">
-        <g-link :to="{ name: 'home' }">
-          Terminal
-          <br>Boys
-        </g-link>
-      </strong>-->
-      <nav class="nav">
-        <g-link
-          class="nav__link"
-          :to="{ name: 'home' }"
-          data-name="home"
+      <div class="row">
+        <nav class="nav">
+          <g-link
+            class="nav__link"
+            :to="{ name: 'home' }"
+            data-name="home"
+          >
+            Главная
+            <font-awesome-icon :icon="['fas', 'square-full']" />
+          </g-link>
+          <g-link
+            class="nav__link"
+            :to="{ name: 'blog' }"
+          >
+            Блог
+            <font-awesome-icon :icon="['fas', 'square-full']" />
+          </g-link>
+          <g-link
+            class="nav__link"
+            :to="{ name: 'about' }"
+          >
+            Обо мне
+            <font-awesome-icon :icon="['fas', 'square-full']" />
+          </g-link>
+        </nav>
+        <div
+          class="header-icon_btn"
+          @click="handleChangeMode"
         >
-          Главная
-          <font-awesome-icon :icon="['fas', 'square-full']" />
-        </g-link>
-        <g-link
-          class="nav__link"
-          :to="{ name: 'blog' }"
+          <font-awesome-icon :icon="['fa', isLightTheme ? 'moon' : 'sun']" />
+        </div>
+        <div
+          class="header-icon_btn mob_nav-toggle"
+          @click="handleThemer"
         >
-          Блог
-          <font-awesome-icon :icon="['fas', 'square-full']" />
-        </g-link>
-        <g-link
-          class="nav__link"
-          :to="{ name: 'about' }"
-        >
-          Обо мне
-          <font-awesome-icon :icon="['fas', 'square-full']" />
-        </g-link>
-      </nav>
-      <div
-        class="toggle-themer"
-        @click="handleThemer"
-      >
-        <font-awesome-icon
-          :icon="['fas', 'ellipsis-v']"
-        />
-      </div>
-      <div class="themer hidden">
-        <div class="switcher dark" />
-        <div class="switcher light" />
-        <ul class="nav-mobile">
-          <li>
-            <g-link
-              class="nav__link-mobile"
-              :to="{ name: 'home' }"
-            >
-              Главная
-            </g-link>
-          </li>
-          <li>
-            <g-link
-              class="nav__link-mobile"
-              :to="{ name: 'blog' }"
-            >
-              Блог
-            </g-link>
-          </li>
-          <li>
-            <g-link
-              class="nav__link-mobile"
-              :to="{ name: 'about' }"
-            >
-              Работы
-            </g-link>
-          </li>
-        </ul>
+          <font-awesome-icon
+            :icon="['fas', 'bars']"
+          />
+        </div>
+        <div class="mob_nav hidden">
+          <ul class="nav-mobile">
+            <li>
+              <g-link
+                class="nav__link-mobile"
+                :to="{ name: 'home' }"
+              >
+                Главная
+              </g-link>
+            </li>
+            <li>
+              <g-link
+                class="nav__link-mobile"
+                :to="{ name: 'blog' }"
+              >
+                Блог
+              </g-link>
+            </li>
+            <li>
+              <g-link
+                class="nav__link-mobile"
+                :to="{ name: 'about' }"
+              >
+                Работы
+              </g-link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </header>
@@ -113,42 +113,63 @@
 
 <script>
 export default {
+  data () {
+    return {
+      isLightTheme: true
+    }
+  },
   metaInfo: {},
   mounted () {
-    // THEME SWITCHER TOGGLE
-    const themer = document.querySelector('.themer')
-    // THEME TOGGLE
-    const switches = document.querySelectorAll('.switcher')
-    const htmlTag = document.getElementsByTagName('HTML')[0]
-    const themeColors = {
-      dark: {
-        bg: '#2D2B30',
-        font: 'rgba(255 ,255, 255, 0.9)',
-        hl: '#fff482',
-        code: '#525252'
-      },
-      light: {
-        bg: 'rgb(246, 247, 248)',
-        font: '#202020',
-        hl: '#4e3dad',
-        code: '#dcdcdc'
-      }
+    const cachedTheme = localStorage.getItem('theme')
+    console.log(cachedTheme)
+    if (cachedTheme) {
+      this.isLightTheme = cachedTheme === 'light'
+      const htmlTag = document.getElementsByTagName('HTML')[0]
+      const themeColors = {
+        dark: {
+          bg: '#2D2B30',
+          font: 'rgba(255 ,255, 255, 0.9)',
+          hl: '#fff482',
+          code: '#525252'
+        },
+        light: {
+          bg: 'rgb(246, 247, 248)',
+          font: '#202020',
+          hl: '#4e3dad',
+          code: '#dcdcdc'
+        }
+      };
+      ['font', 'bg', 'hl', 'code'].forEach(el =>
+        htmlTag.style.setProperty(`--${el}`, themeColors[this.isLightTheme ? 'light' : 'dark'][el])
+      )
     }
-
-    switches.forEach(el => {
-      el.addEventListener('click', e => {
-        const selectedTheme = e.target.classList[1]
-        ;['font', 'bg', 'hl', 'code'].forEach(el =>
-          htmlTag.style.setProperty(`--${el}`, themeColors[selectedTheme][el])
-        )
-        themer.classList.toggle('hidden')
-      })
-    })
   },
   methods: {
+    handleChangeMode () {
+      const htmlTag = document.getElementsByTagName('HTML')[0]
+      const themeColors = {
+        dark: {
+          bg: '#2D2B30',
+          font: 'rgba(255 ,255, 255, 0.9)',
+          hl: '#fff482',
+          code: '#525252'
+        },
+        light: {
+          bg: 'rgb(246, 247, 248)',
+          font: '#202020',
+          hl: '#4e3dad',
+          code: '#dcdcdc'
+        }
+      };
+      ['font', 'bg', 'hl', 'code'].forEach(el =>
+        htmlTag.style.setProperty(`--${el}`, themeColors[this.isLightTheme ? 'dark' : 'light'][el])
+      )
+      localStorage.setItem('theme', this.isLightTheme ? 'dark' : 'light')
+      this.isLightTheme = !this.isLightTheme
+    },
     handleThemer (e) {
-      const themer = document.querySelector('.themer')
-      themer.classList.toggle('hidden')
+      const mobNav = document.querySelector('.mob_nav')
+      mobNav.classList.toggle('hidden')
     }
   }
 }
@@ -156,18 +177,21 @@ export default {
 
 <style lang="scss">
 @import '~/styles/main.scss';
-.toggle-themer {
-  font-size: 20px;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 10px;
-  color: var(--font);
-  cursor: pointer;
-  margin-right: -10px;
+.header-icon_btn {
+  padding: 5px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.mob_nav-toggle {
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
 }
-.themer {
+.mob_nav {
   @media only screen and (max-width: 768px) {
     width: 140px;
   }
@@ -181,6 +205,7 @@ export default {
   background-color: white;
   border: 2px solid var(--hl);
   border-radius: 10px;
+  text-align: right;
   .dark {
     background-color: #303030;
     border: 2px solid #c1c1c1;
@@ -202,18 +227,10 @@ export default {
   cursor: pointer;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 #header {
   font-family: var(--sans);
   padding: 5px 25px;
-  margin-bottom: 10px;
-  @media only screen and (max-width: 768px) {
-    padding: 5px 18px;
-  }
+  margin-bottom: 20px;
   .row {
     display: flex;
     min-height: 34px;
@@ -236,29 +253,8 @@ a {
     justify-content: space-between;
     position: relative;
     align-items: center;
-    padding-right: 25px;
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   width: 100%;
-    //   height: 2px;
-    //   background-color: var(--bg2);
-    //   bottom: 0;
-    // }
   }
 }
-
-// #title {
-//   // width: min-content;
-//   text-align: right;
-//   font-size: 24px;
-//   font-family: var(--sans);
-//   text-transform: uppercase;
-//   line-height: 1;
-//   padding-bottom: 7px;
-//   width: 100px;
-//   display: flex;
-// }
 
 .nav-mobile {
   @media only screen and (min-width: 768px) {
@@ -266,7 +262,7 @@ a {
   }
   margin-bottom: 5px;
   li {
-    padding: 3px 0 3px 10px;
+    padding: 3px 10px;
     color: black;
   }
   a {
@@ -282,7 +278,7 @@ nav {
 
   a {
     width: 110px;
-    padding: 8.5px 0 8.5px 25px;
+    padding: 9px;
     display: inline-block;
     border: 2px solid transparent;
     border-top-left-radius: 15px;
