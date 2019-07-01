@@ -185,6 +185,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  & > * {
+    width: 20px !important;
+    height: 20px;
+  }
+  &:first-of-type {
+    margin-right: 10px;
+  }
   &.mob_nav-toggle {
     @media only screen and (min-width: 768px) {
       display: none;
@@ -192,9 +199,7 @@ export default {
   }
 }
 .mob_nav {
-  @media only screen and (max-width: 768px) {
-    width: 140px;
-  }
+  width: 100px;
   z-index: 999;
   display: flex;
   flex-wrap: wrap;
@@ -230,7 +235,10 @@ export default {
 #header {
   font-family: var(--sans);
   padding: 5px 25px;
-  margin-bottom: 20px;
+  @media screen and (max-width: 768px) {
+    padding: 5px 16px;
+  }
+  margin-bottom: 10px;
   .row {
     display: flex;
     min-height: 34px;
@@ -262,7 +270,7 @@ export default {
   }
   margin-bottom: 5px;
   li {
-    padding: 3px 10px;
+    padding: 6px 10px;
     color: black;
   }
   a {

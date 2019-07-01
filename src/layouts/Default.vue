@@ -1,19 +1,21 @@
 <template>
   <div class="layout">
     <my-header />
-    <div class="wrapper">
+    <div class="main-content wrapper">
       <slot />
     </div>
-    <footer id="footer" />
+    <my-footer />
   </div>
 </template>
 
 <script>
 import Header from '@/layouts/Header'
+import Footer from '@/layouts/Footer'
 
 export default {
   components: {
-    myHeader: Header
+    myHeader: Header,
+    myFooter: Footer
   },
   metaInfo: {}
 }
@@ -21,17 +23,18 @@ export default {
 
 <style lang="scss">
 @import '~/styles/main.scss';
-a {
-  text-decoration: none;
-  color: inherit;
+hr {
+  color: rgba(var(--font), 0.5)
 }
-
+.main-content {
+  margin-bottom: 60px;
+  min-height: 100vh;
+}
 .layout {
   max-width: 860px;
   box-shadow: 0px -2px 10px -2px rgba(84, 84, 84, 0.75);
   min-height: 100vh;
   margin: 0 auto;
-  // padding: 0 25px;
   background-color: var(--bg);
   transition: box-shadow 2s ease-in;
 }

@@ -1,6 +1,9 @@
 <template>
   <Layout>
     <!-- <Pie /> -->
+    <h1 style="margin-bottom: 15px">
+      Статьи
+    </h1>
     <div>
       <li
         v-for="item in $page.allPost.edges"
